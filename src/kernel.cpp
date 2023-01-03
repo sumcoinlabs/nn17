@@ -50,7 +50,7 @@ const unsigned int nProtocolV10TestSwitchTime = 1682698247 + 7000; // Thu  1 Jul
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     boost::assign::map_list_of(0,0)
-    ( 0, 0x0e00670bu )
+    //( 0, 0x0e00670bu )
     //( 14369, 0x763088f2u)
     // ( 1013, 0x681f974fu ) // "681f974f"
     // ( 13339, 0x2a26e1b9u )
