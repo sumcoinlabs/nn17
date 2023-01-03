@@ -12,7 +12,7 @@ bin
 src/*.exe
 src/*/*.exe
 src/peercoin
-src/peercoind
+src/sumcoind
 src/peercoin-cli
 src/peercoin-tx
 src/test/test_peercoin
@@ -95,7 +95,7 @@ Makefile
 ppcoin-qt
 peercoin-qt
 PPCoin-Qt.app
-Peercoin-Qt.app
+Sumcoin-Qt.app
 background.tiff*
 
 # Unit-tests
