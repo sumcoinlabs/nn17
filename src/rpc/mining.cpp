@@ -54,7 +54,7 @@ UniValue GetNetworkHashPS(int lookup, int height) {
     if (pb == nullptr || !pb->nHeight)
         return 0;
 
-    //ppcTODO - redo this to fit peercoin
+    //ppcTODO - redo this to fit sumcoin
     // If lookup is -1, then use blocks since last difficulty change.
 //    if (lookup <= 0)
 //        lookup = pb->nHeight % Params().GetConsensus().DifficultyAdjustmentInterval() + 1;
@@ -105,7 +105,7 @@ UniValue getnetworkhashps(const JSONRPCRequest& request)
     return GetNetworkHashPS(!request.params[0].isNull() ? request.params[0].get_int() : 120, !request.params[1].isNull() ? request.params[1].get_int() : -1);
 }
 
-// peercoin: get network Gh/s estimate
+// sumcoin: get network Gh/s estimate
 UniValue getnetworkghps(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() != 0)
@@ -168,7 +168,7 @@ UniValue generateBlocks(std::shared_ptr<CReserveScript> coinbaseScript, int nGen
             continue;
         }
 
-        // peercoin: sign block
+        // sumcoin: sign block
         // rfc6: we sign proof of work blocks only before 0.8 fork
         if (!IsBTC16BIPsEnabled(pblock->GetBlockTime()) && !SignBlock(*pblock, *pwallet))
             throw JSONRPCError(-100, "Unable to sign block, wallet locked?");
@@ -196,7 +196,7 @@ UniValue generatetoaddress(const JSONRPCRequest& request)
             "\nMine blocks immediately to a specified address (before the RPC call returns)\n"
             "\nArguments:\n"
             "1. nblocks      (numeric, required) How many blocks are generated immediately.\n"
-            "2. address      (string, required) The address to send the newly generated peercoin to.\n"
+            "2. address      (string, required) The address to send the newly generated sumcoin to.\n"
             "3. maxtries     (numeric, optional) How many iterations to try (default = 1000000).\n"
             "\nResult:\n"
             "[ blockhashes ]     (array) hashes of blocks generated\n"
@@ -700,14 +700,14 @@ UniValue submitblock(const JSONRPCRequest& request)
         }
     }
 
-    // peercoin: check block before attempting to sign it
+    // sumcoin: check block before attempting to sign it
     CValidationState state;
     if (!CheckBlock(block, state, Params().GetConsensus(), true,  true, false)) {
         LogPrintf("SubmitBlock: %s\n", FormatStateMessage(state));
         throw JSONRPCError(-100, "Block failed CheckBlock() function.");
         }
 
-    // peercoin: sign block
+    // sumcoin: sign block
     // rfc6: sign proof of stake blocks only after 0.8 fork
     if ((block.IsProofOfStake() || !IsBTC16BIPsEnabled(block.GetBlockTime())) && !SignBlock(block, *pwallet))
         throw JSONRPCError(-100, "Unable to sign block, wallet locked?");

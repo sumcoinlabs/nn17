@@ -72,11 +72,11 @@ class BitcoinTestFramework():
 
         parser = optparse.OptionParser(usage="%prog [options]")
         parser.add_option("--nocleanup", dest="nocleanup", default=False, action="store_true",
-                          help="Leave peercoinds and test.* datadir on exit or error")
+                          help="Leave sumcoinds and test.* datadir on exit or error")
         parser.add_option("--noshutdown", dest="noshutdown", default=False, action="store_true",
-                          help="Don't stop peercoinds after the test execution")
+                          help="Don't stop sumcoinds after the test execution")
         parser.add_option("--srcdir", dest="srcdir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__)) + "/../../../src"),
-                          help="Source directory containing sumcoind/peercoin-cli (default: %default)")
+                          help="Source directory containing sumcoind/sumcoin-cli (default: %default)")
         parser.add_option("--cachedir", dest="cachedir", default=os.path.normpath(os.path.dirname(os.path.realpath(__file__)) + "/../../cache"),
                           help="Directory for caching pregenerated datadirs")
         parser.add_option("--tmpdir", dest="tmpdir", help="Root directory for datadirs")
@@ -93,7 +93,7 @@ class BitcoinTestFramework():
         parser.add_option("--pdbonfailure", dest="pdbonfailure", default=False, action="store_true",
                           help="Attach a python debugger if test fails")
         parser.add_option("--usecli", dest="usecli", default=False, action="store_true",
-                          help="use peercoin-cli instead of RPC for all commands")
+                          help="use sumcoin-cli instead of RPC for all commands")
         self.add_options(parser)
         (self.options, self.args) = parser.parse_args()
 
@@ -147,7 +147,7 @@ class BitcoinTestFramework():
         else:
             for node in self.nodes:
                 node.cleanup_on_exit = False
-            self.log.info("Note: peercoinds were not stopped and may still be running")
+            self.log.info("Note: sumcoinds were not stopped and may still be running")
 
         if not self.options.nocleanup and not self.options.noshutdown and success != TestStatus.FAILED:
             self.log.info("Cleaning up")
@@ -234,7 +234,7 @@ class BitcoinTestFramework():
             coverage.write_all_rpc_commands(self.options.coveragedir, node.rpc)
 
     def start_nodes(self, extra_args=None, *args, **kwargs):
-        """Start multiple peercoinds"""
+        """Start multiple sumcoinds"""
 
         if extra_args is None:
             extra_args = [None] * self.num_nodes
@@ -386,7 +386,7 @@ class BitcoinTestFramework():
                 if os.path.isdir(get_datadir_path(self.options.cachedir, i)):
                     shutil.rmtree(get_datadir_path(self.options.cachedir, i))
 
-            # Create cache directories, run peercoinds:
+            # Create cache directories, run sumcoinds:
             for i in range(MAX_NODES):
                 datadir = initialize_datadir(self.options.cachedir, i)
                 args = [os.getenv("BITCOIND", "sumcoind"), "-server", "-keypool=1", "-datadir=" + datadir, "-discover=0"]
@@ -435,7 +435,7 @@ class BitcoinTestFramework():
             from_dir = get_datadir_path(self.options.cachedir, i)
             to_dir = get_datadir_path(self.options.tmpdir, i)
             shutil.copytree(from_dir, to_dir)
-            initialize_datadir(self.options.tmpdir, i)  # Overwrite port/rpcport in peercoin.conf
+            initialize_datadir(self.options.tmpdir, i)  # Overwrite port/rpcport in sumcoin.conf
 
     def _initialize_chain_clean(self):
         """Initialize empty blockchain for use by the test.

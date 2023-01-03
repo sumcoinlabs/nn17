@@ -87,10 +87,10 @@ static int AppInitRPC(int argc, char* argv[])
         std::string strUsage = strprintf(_("%s RPC client version"), _(PACKAGE_NAME)) + " " + FormatFullVersion() + "\n";
         if (!gArgs.IsArgSet("-version")) {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  peercoin-cli [options] <command> [params]  " + strprintf(_("Send command to %s"), _(PACKAGE_NAME)) + "\n" +
-                  "  peercoin-cli [options] -named <command> [name=value] ... " + strprintf(_("Send command to %s (with named arguments)"), _(PACKAGE_NAME)) + "\n" +
-                  "  peercoin-cli [options] help                " + _("List commands") + "\n" +
-                  "  peercoin-cli [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  sumcoin-cli [options] <command> [params]  " + strprintf(_("Send command to %s"), _(PACKAGE_NAME)) + "\n" +
+                  "  sumcoin-cli [options] -named <command> [name=value] ... " + strprintf(_("Send command to %s (with named arguments)"), _(PACKAGE_NAME)) + "\n" +
+                  "  sumcoin-cli [options] help                " + _("List commands") + "\n" +
+                  "  sumcoin-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessageCli();
         }
@@ -444,7 +444,7 @@ int CommandLineRPC(int argc, char *argv[])
                             strPrint += "error message:\n"+errMsg.get_str();
 
                         if (errCode.isNum() && errCode.get_int() == RPC_WALLET_NOT_SPECIFIED) {
-                            strPrint += "\nTry adding \"-rpcwallet=<filename>\" option to peercoin-cli command line.";
+                            strPrint += "\nTry adding \"-rpcwallet=<filename>\" option to sumcoin-cli command line.";
                         }
                     }
                 } else {

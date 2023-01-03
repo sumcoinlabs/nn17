@@ -3,13 +3,13 @@ Sumcoin Official Development Repo
 ==================================
 
 [![Build 
-Status](https://travis-ci.org/peercoin/peercoin.svg?branch=master)](https://travis-ci.org/peercoin/peercoin)
+Status](https://travis-ci.org/sumcoin/sumcoin.svg?branch=master)](https://travis-ci.org/sumcoin/sumcoin)
 
 ### What is Sumcoin?
 [Sumcoin](https://sumcoin.org) (abbreviated SUM), is one of the first 
 [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design 
 introducing [proof-of-stake 
-consensus](https://peercoin.net/resources#whitepaper) as a security 
+consensus](https://sumcoin.org/resources#whitepaper) as a security 
 model, with a combined 
 [proof-of-stake]/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) 
 minting system. Sumcoin is based on [Bitcoin](https://bitcoin.org), 
@@ -27,7 +27,7 @@ Whitepaper](https://sumcoin.org/resources#whitepaper),
 * Help: 
 [Forum](https://talk.sumcoin.org),
 [Intro & Important 
-Links](https://talk.sumcoin.org/t/what-is-peercoin-intro-important-links/2889)
+Links](https://talk.sumcoin.org/t/what-is-sumcoin-intro-important-links/2889)
 
 Testing
 -------

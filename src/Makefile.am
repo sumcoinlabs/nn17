@@ -36,7 +36,7 @@ if ENABLE_ZMQ
 LIBBITCOIN_ZMQ=libbitcoin_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libpeercoinconsensus.la
+LIBBITCOINCONSENSUS=libsumcoinconsensus.la
 endif
 if ENABLE_WALLET
 LIBBITCOIN_WALLET=libbitcoin_wallet.a
@@ -69,7 +69,7 @@ if BUILD_BITCOIND
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += peercoin-cli peercoin-tx
+  bin_PROGRAMS += sumcoin-cli sumcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -243,7 +243,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between sumcoind and peercoin-qt, but only linked
+# wallet: shared between sumcoind and sumcoin-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -321,7 +321,7 @@ libbitcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between sumcoind, and peercoin-qt and non-server tools
+# common: shared between sumcoind, and sumcoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -372,7 +372,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between peercoin-cli and peercoin-qt
+# cli: shared between sumcoin-cli and sumcoin-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -383,16 +383,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # sumcoind binary #
-peercoind_SOURCES = bitcoind.cpp
-peercoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-peercoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-peercoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+sumcoind_SOURCES = bitcoind.cpp
+sumcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+sumcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sumcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-peercoind_SOURCES += bitcoind-res.rc
+sumcoind_SOURCES += bitcoind-res.rc
 endif
 
-peercoind_LDADD = \
+sumcoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -406,40 +406,40 @@ peercoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-peercoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+sumcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# peercoin-cli binary #
-peercoin_cli_SOURCES = bitcoin-cli.cpp
-peercoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-peercoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-peercoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# sumcoin-cli binary #
+sumcoin_cli_SOURCES = bitcoin-cli.cpp
+sumcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+sumcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sumcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-peercoin_cli_SOURCES += bitcoin-cli-res.rc
+sumcoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-peercoin_cli_LDADD = \
+sumcoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-peercoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+sumcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# peercoin-tx binary #
-peercoin_tx_SOURCES = \
+# sumcoin-tx binary #
+sumcoin_tx_SOURCES = \
   bitcoin-tx.cpp \
   timedatadummy.cpp
-peercoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-peercoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-peercoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+sumcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+sumcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+sumcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-peercoin_tx_SOURCES += bitcoin-tx-res.rc
+sumcoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-peercoin_tx_LDADD = \
+sumcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -447,22 +447,22 @@ peercoin_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-peercoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+sumcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# peercoinconsensus library #
+# sumcoinconsensus library #
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h
-libpeercoinconsensus_la_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) $(libbitcoin_consensus_a_SOURCES)
+libsumcoinconsensus_la_SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) $(libbitcoin_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libpeercoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libsumcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libpeercoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libpeercoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libpeercoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libpeercoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libsumcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libsumcoinconsensus_la_LIBADD = $(LIBSECP256K1)
+libsumcoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libsumcoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

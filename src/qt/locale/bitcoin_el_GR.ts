@@ -184,8 +184,8 @@
         <translation>Πορτοφόλι κρυπτογραφήθηκε</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your peercoins from being stolen by malware infecting your computer.</source>
-        <translation>%1 θα κλείσει τώρα για να τελειώσει η διαδικασία κρυπτογράφησης. Να θυμάστε ότι κρυπτογραφόντας το πορτοφόλι σας δεν μπορείτε να προστατεύσετε πλήρως τα peercoin σας απο κλοπή μέσω malware που μπορεί να προσβάλει τον υπολογιστή σας.</translation>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your sumcoins from being stolen by malware infecting your computer.</source>
+        <translation>%1 θα κλείσει τώρα για να τελειώσει η διαδικασία κρυπτογράφησης. Να θυμάστε ότι κρυπτογραφόντας το πορτοφόλι σας δεν μπορείτε να προστατεύσετε πλήρως τα sumcoin σας απο κλοπή μέσω malware που μπορεί να προσβάλει τον υπολογιστή σας.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -291,7 +291,7 @@
     </message>
     <message>
         <source>Send coins to a Sumcoin address</source>
-        <translation>Στείλε νομίσματα σε μια διεύθυνση peercoin</translation>
+        <translation>Στείλε νομίσματα σε μια διεύθυνση sumcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -366,8 +366,8 @@
         <translation>Εργαλειοθήκη καρτελών</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις peercoin: )</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Αίτηση πληρωμών (δημιουργεί QR codes και διευθύνσεις sumcoin: )</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -378,8 +378,8 @@
         <translation>Προβολή της λίστας των χρησιμοποιημένων διευθύνσεων και ετικετών λήψεως</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
-        <translation>Άνοιγμα peercoin: URI αίτησης πληρωμής</translation>
+        <source>Open a sumcoin: URI or payment request</source>
+        <translation>Άνοιγμα sumcoin: URI αίτησης πληρωμής</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -986,8 +986,8 @@
         <translation>Σφάλμα αίτησης πληρωμής</translation>
     </message>
     <message>
-        <source>Cannot start peercoin: click-to-pay handler</source>
-        <translation>Δεν είναι δυνατή η εκκίνηση του peercoin: χειριστής click-to-pay</translation>
+        <source>Cannot start sumcoin: click-to-pay handler</source>
+        <translation>Δεν είναι δυνατή η εκκίνηση του sumcoin: χειριστής click-to-pay</translation>
     </message>
     <message>
         <source>URI handling</source>

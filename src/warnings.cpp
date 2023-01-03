@@ -58,7 +58,7 @@ std::string GetWarnings(const std::string& strFor)
     if (gArgs.GetBoolArg("-testsafemode", DEFAULT_TESTSAFEMODE))
         strStatusBar = strRPC = strGUI = "testsafemode enabled";
 
-    // peercoin: wallet lock warning for minting
+    // sumcoin: wallet lock warning for minting
     if (strMintWarning != "")
     {
         nPriority = 0;
@@ -67,7 +67,7 @@ std::string GetWarnings(const std::string& strFor)
     }
 
 #ifdef ENABLE_CHECKPOINTS
-    // peercoin: checkpoint warning
+    // sumcoin: checkpoint warning
     // should not enter safe mode for longer invalid chain
     if (strCheckpointWarning != "")
     {
@@ -98,7 +98,7 @@ std::string GetWarnings(const std::string& strFor)
         strGUI += (strGUI.empty() ? "" : uiAlertSeperator) + _("Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.");
     }
 #ifdef ENABLE_CHECKPOINTS
-    // peercoin: detect invalid checkpoint
+    // sumcoin: detect invalid checkpoint
     if (hashInvalidCheckpoint != uint256())
     {
         nPriority = 3000;

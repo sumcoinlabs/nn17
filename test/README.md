@@ -8,8 +8,8 @@ There are currently two sets of tests in this directory:
 - [functional](/test/functional) which test the functionality of 
 sumcoind and bitcoin-qt by interacting with them through the RPC and P2P
 interfaces.
-- [util](/test/util) which tests the peercoin utilities, currently only
-peercoin-tx.
+- [util](/test/util) which tests the sumcoin utilities, currently only
+sumcoin-tx.
 
 The util tests are run as part of `make check` target. The functional
 tests are run by the travis continuous build process whenever a pull

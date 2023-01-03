@@ -86,7 +86,7 @@ static const size_t DEFAULT_MAXSENDBUFFER    = 1 * 1000;
 // NOTE: When adjusting this, update rpcnet:setban's help ("24h")
 static const unsigned int DEFAULT_MISBEHAVING_BANTIME = 60 * 60 * 24;  // Default 24-hour ban
 
-/** peercoin: Number of consecutive PoS headers are allowed from a single peer. Used to prevent out of memory attack. */
+/** sumcoin: Number of consecutive PoS headers are allowed from a single peer. Used to prevent out of memory attack. */
 static const int32_t MAX_CONSECUTIVE_POS_HEADERS = 1000;
 
 // const unsigned int POW_HEADER_COOLING = 70;  - defined in protocol.cpp, so that it is visible to other files
@@ -679,7 +679,7 @@ public:
     CRollingBloomFilter addrKnown;
     bool fGetAddr;
     std::set<uint256> setKnown;
-    uint256 hashCheckpointKnown; // peercoin: known sent sync-checkpoint
+    uint256 hashCheckpointKnown; // sumcoin: known sent sync-checkpoint
     int64_t nNextAddrSend;
     int64_t nNextLocalAddrSend;
 
@@ -725,7 +725,7 @@ public:
     CCriticalSection cs_feeFilter;
     CAmount lastSentFeeFilter;
     int64_t nextSendTimeFeeFilter;
-    // peercoin: used to detect branch switches
+    // sumcoin: used to detect branch switches
     uint256 lastAcceptedHeader;
 
     CNode(NodeId id, ServiceFlags nLocalServicesIn, int nMyStartingHeightIn, SOCKET hSocketIn, const CAddress &addrIn, uint64_t nKeyedNetGroupIn, uint64_t nLocalHostNonceIn, const CAddress &addrBindIn, const std::string &addrNameIn = "", bool fInboundIn = false);

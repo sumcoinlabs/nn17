@@ -1,11 +1,11 @@
 Upstream-Name: Sumcoin
-Upstream-Contact: Stichting Sumcoin Foundation <foundation@peercoin.net>
-Source: https://github.com/peercoin/peercoin
+Upstream-Contact: Stichting Sumcoin Foundation <foundation@sumcoin.org>
+Source: sumcoinhttps://github.com/sumcoinlabs/sumcoin
 
 Files: *
 Copyright: 2011-2020 Sumcoin Developers
 License: Expat
-Comment: The Sumcoin Developers encompasses the current developers listed on https://github.com/peercoin/peercoin,
+Comment: The Sumcoin Developers encompasses the current developers listed on sumcoinhttps://github.com/sumcoinlabs/sumcoin,
          as well as the numerous contributors to the project.
 
 Files: debian/*

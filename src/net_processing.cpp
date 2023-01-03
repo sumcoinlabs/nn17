@@ -119,7 +119,7 @@ namespace {
     };
     std::map<uint256, std::pair<NodeId, std::list<QueuedBlock>::iterator> > mapBlocksInFlight;
 
-    /** peercoin: blocks that are waiting to be processed, the key points to previous CBlockIndex entry */
+    /** sumcoin: blocks that are waiting to be processed, the key points to previous CBlockIndex entry */
     struct WaitElement {
         std::shared_ptr<CBlock> pblock;
             int64_t time;
@@ -1185,7 +1185,7 @@ void static ProcessGetBlockData(CNode* pfrom, const Consensus::Params& consensus
             // Bypass PushInventory, this must send even if redundant,
             // and we want it right after the last block so they don't
             // wait for other stuff first.
-            // peercoin: send latest proof-of-work block to allow the
+            // sumcoin: send latest proof-of-work block to allow the
             // download node to accept as orphan (proof-of-stake
             // block might be rejected by stake connection check)
             std::vector<CInv> vInv;
@@ -1718,7 +1718,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
 #ifdef ENABLE_CHECKPOINTS
-        // peercoin: relay sync-checkpoint
+        // sumcoin: relay sync-checkpoint
         {
             LOCK(cs_main);
             if (!checkpointMessage.IsNull())
@@ -1726,7 +1726,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 #endif
 
-        // peercoin: relay alerts
+        // sumcoin: relay alerts
         {
             LOCK(cs_mapAlerts);
             for (auto& item : mapAlerts)
@@ -1759,7 +1759,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
 #ifdef ENABLE_CHECKPOINTS
-        // peercoin: ask for pending sync-checkpoint if any
+        // sumcoin: ask for pending sync-checkpoint if any
         if (!IsInitialBlockDownload())
             AskForPendingSyncCheckpoint(pfrom);
 #endif
@@ -1776,7 +1776,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         return false;
     }
 
-    // peercoin: set/unset network serialization mode for new clients
+    // sumcoin: set/unset network serialization mode for new clients
     if (pfrom->nVersion <= OLD_VERSION)
         vRecv.SetType(vRecv.GetType() & ~SER_POSMARKER);
     else
@@ -2027,7 +2027,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             if (pindex->GetBlockHash() == hashStop)
             {
                 LogPrint(BCLog::NET, "  getblocks stopping at %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString());
-                // peercoin: tell downloading node about the latest block if it's
+                // sumcoin: tell downloading node about the latest block if it's
                 // without risk being rejected due to stake connection check
                 if (hashStop != chainActive.Tip()->GetBlockHash() && pindex->GetBlockTime() + Params().GetConsensus().nStakeMinAge > chainActive.Tip()->GetBlockTime())
                     pfrom->PushInventory(CInv(MSG_BLOCK, chainActive.Tip()->GetBlockHash()));
@@ -2675,7 +2675,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             ReadCompactSize(vRecv); // ignore tx count; assume it is 0.
             ReadCompactSize(vRecv); // needed for vchBlockSig.
 
-            // peercoin: quick check to see if we should ban peers for PoS spam
+            // sumcoin: quick check to see if we should ban peers for PoS spam
             // note: at this point we don't know if PoW headers are valid - we just assume they are
             // so we need to update pfrom->nPoSTemperature once we actualy check them
             bool fPoS = headers[n].nFlags & CBlockIndex::BLOCK_PROOF_OF_STAKE;
@@ -2738,7 +2738,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
                     return error("this block does not connect to any valid known blocks");
                 }
             }
-            // peercoin: store in memory until we can connect it to some chain
+            // sumcoin: store in memory until we can connect it to some chain
             WaitElement we; we.pblock = pblock2; we.time = nTimeNow;
             mapBlocksWait[miPrev->second] = we;
         }
@@ -2748,7 +2748,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
             pindexLastAccepted = chainActive.Tip();
         bool fContinue = true;
 
-        // peercoin: accept as many blocks as we possibly can from mapBlocksWait
+        // sumcoin: accept as many blocks as we possibly can from mapBlocksWait
         while (fContinue) {
             fContinue = false;
             bool fSelected = false;
@@ -2758,7 +2758,7 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
 
             {
             LOCK(cs_main);
-            // peercoin: try to select next block in a constant time
+            // sumcoin: try to select next block in a constant time
             std::map<CBlockIndex*, WaitElement>::iterator it = mapBlocksWait.find(pindexLastAccepted);
             if (it != mapBlocksWait.end() && pindexLastAccepted != nullptr) {
                 pindexPrev = it->first;

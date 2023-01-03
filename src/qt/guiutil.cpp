@@ -146,7 +146,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
     // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || (uri.scheme() != QString("peercoin") && uri.scheme() != QString("ppcoin")))
+    if(!uri.isValid() || (uri.scheme() != QString("sumcoin") && uri.scheme() != QString("ppcoin")))
         return false;
 
     SendCoinsRecipient rv;
@@ -210,9 +210,9 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
     //
     //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("peercoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("sumcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 11, "peercoin:");
+        uri.replace(0, 11, "sumcoin:");
     }
     if(uri.startsWith("ppcoin://", Qt::CaseInsensitive))
     {
@@ -224,7 +224,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("peercoin:%1").arg(info.address);
+    QString ret = QString("sumcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -709,8 +709,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "peercoin.desktop";
-    return GetAutostartDir() / strprintf("peercoin-%s.lnk", chain);
+        return GetAutostartDir() / "sumcoin.desktop";
+    return GetAutostartDir() / strprintf("sumcoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()

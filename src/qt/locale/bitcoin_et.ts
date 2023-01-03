@@ -366,12 +366,12 @@
         <translation>Vahelehe tööriistariba</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Loo maksepäring (genereerib QR koodid ja peercoini: URId)</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Loo maksepäring (genereerib QR koodid ja sumcoini: URId)</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
-        <translation>Ava peercoini: URI või maksepäring</translation>
+        <source>Open a sumcoin: URI or payment request</source>
+        <translation>Ava sumcoini: URI või maksepäring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

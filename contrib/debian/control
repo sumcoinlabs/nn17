@@ -1,4 +1,4 @@
-Source: peercoin
+Source: sumcoin
 Section: utils
 Priority: optional
 Maintainer: Peerchemist <peerchemist@protonmail.ch>
@@ -25,9 +25,9 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.peercoin.net/
-Vcs-Git: git://github.com/peercoin/peercoin.git
-Vcs-Browser: https://github.com/peercoin/peercoin
+Homepage: https://www.sumcoin.org/
+Vcs-Git: git://github.com/sumcoin/sumcoin.git
+Vcs-Browser: sumcoinhttps://github.com/sumcoinlabs/sumcoin
 
 Package: sumcoind
 Architecture: any
@@ -38,9 +38,9 @@ Description: peer-to-peer network based digital currency - daemon
  preferable properties.
  .
  This package provides the daemon, sumcoind, and the CLI tool
- peercoin-cli to interact with the daemon.
+ sumcoin-cli to interact with the daemon.
 
-Package: peercoin-qt
+Package: sumcoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
@@ -50,13 +50,13 @@ Description: peer-to-peer network based digital currency - Qt GUI
  .
  This package provides Sumcoin-Qt, a GUI client for Sumcoin based on Qt.
 
-Package: peercoin-tx
+Package: sumcoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
  Sumcoin is a crypto-currency project forked from Bitcoin with aim to achieve
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
- This package provides peercoin-tx, a command-line transaction creation
- tool which can be used without a peercoin daemon.  Some means of
+ This package provides sumcoin-tx, a command-line transaction creation
+ tool which can be used without a sumcoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

@@ -29,7 +29,7 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called Sumcoin (https://www.peercoin.net/),
+ * This is the developer documentation of the reference client for an experimental new digital currency called Sumcoin (https://www.sumcoin.org/),
  * which enables instant payments to anyone, anywhere in the world. Sumcoin uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
@@ -62,7 +62,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/peercoin.conf are parsed in qt/bitcoin.cpp's main()
+    // If Qt is used, parameters/sumcoin.conf are parsed in qt/bitcoin.cpp's main()
     gArgs.ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir

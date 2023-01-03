@@ -180,7 +180,7 @@
         <translation>Veski dulkóðað</translation>
     </message>
     <message>
-        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your peercoins from being stolen by malware infecting your computer.</source>
+        <source>%1 will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your sumcoins from being stolen by malware infecting your computer.</source>
         <translation>%1 lokast núna til að dulkóðun klárist. Mundu að dulkóðun veskis kemur ekki að fullu í veg fyrir að mynt verði stolið úr tölvunni þinni með aðstoð smitforrita. </translation>
     </message>
     <message>
@@ -414,8 +414,8 @@
         <translation>Tólaborð flipa</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Óska eftir greiðslum (býr til QR kóða og peercoin: URI)</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Óska eftir greiðslum (býr til QR kóða og sumcoin: URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -426,8 +426,8 @@
         <translation>Sýna færslugildi sem notuð hafa verið til að taka við mynt og merkingar þeirra</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
-        <translation>Opna peercoin: URI eða greiðslubeiðni</translation>
+        <source>Open a sumcoin: URI or payment request</source>
+        <translation>Opna sumcoin: URI eða greiðslubeiðni</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -849,8 +849,8 @@
         <translation>Skiptimynt:</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for peercoin transactions than the network can process.</source>
-        <translation>Það er í lagi að greiða einungis lágmarksupphæðina svo framarlega sem færslurúmtakið er minna en plássið í blokkunum. En gætið þess að þegar það er meiri eftirspurn eftir peercoin færslum en netið getur unnið úr þá gæti svo farið að færslurnar verða aldrei samþykktar.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for sumcoin transactions than the network can process.</source>
+        <translation>Það er í lagi að greiða einungis lágmarksupphæðina svo framarlega sem færslurúmtakið er minna en plássið í blokkunum. En gætið þess að þegar það er meiri eftirspurn eftir sumcoin færslum en netið getur unnið úr þá gæti svo farið að færslurnar verða aldrei samþykktar.</translation>
     </message>
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>

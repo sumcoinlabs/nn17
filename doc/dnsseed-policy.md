@@ -51,4 +51,4 @@ situations but should be discussed in public in advance.
 
 See also
 ----------
-- [peercoin-seeder](https://github.com/peercoin/peercoin-seeder) is a reference implementation of a DNS seed.
+- [sumcoin-seeder](sumcoinhttps://github.com/sumcoinlabs/sumcoin-seeder) is a reference implementation of a DNS seed.

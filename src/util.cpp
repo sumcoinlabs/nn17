@@ -82,7 +82,7 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "peercoin.conf";
+const char * const BITCOIN_CONF_FILENAME = "sumcoin.conf";
 const char * const BITCOIN_PID_FILENAME = "sumcoind.pid";
 const char * const DEFAULT_DEBUGLOGFILE = "debug.log";
 
@@ -559,7 +559,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "peercoin";
+    const char* pszModule = "sumcoin";
 #endif
     if (pex)
         return strprintf(
@@ -581,7 +581,7 @@ fs::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Sumcoin
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Sumcoin
     // Mac: ~/Library/Application Support/Sumcoin
-    // Unix: ~/.peercoin
+    // Unix: ~/.sumcoin
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Sumcoin";
@@ -597,7 +597,7 @@ fs::path GetDefaultDataDir()
     return pathRet / "Library/Application Support/Sumcoin";
 #else
     // Unix
-    return pathRet / ".peercoin";
+    return pathRet / ".sumcoin";
 #endif
 #endif
 }

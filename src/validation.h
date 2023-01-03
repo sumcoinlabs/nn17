@@ -123,7 +123,7 @@ static const int64_t MAX_FEE_ESTIMATION_TIP_AGE = 3 * 60 * 60;
 /** Default for -permitbaremultisig */
 static const bool DEFAULT_PERMIT_BAREMULTISIG = true;
 static const bool DEFAULT_CHECKPOINTS_ENABLED = true;
-static const bool DEFAULT_TXINDEX = true;  // peercoin: txindex is required for PoS calculations (might change in the future)
+static const bool DEFAULT_TXINDEX = true;  // sumcoin: txindex is required for PoS calculations (might change in the future)
 static const unsigned int DEFAULT_BANSCORE_THRESHOLD = 100;
 /** Default for -persistmempool */
 static const bool DEFAULT_PERSIST_MEMPOOL = true;
@@ -453,10 +453,10 @@ bool DumpMempool();
 /** Load the mempool from disk. */
 bool LoadMempool();
 
-// peercoin:
+// sumcoin:
 CAmount GetProofOfWorkReward(unsigned int nBits);
 CAmount GetProofOfStakeReward(int64_t nCoinAge);
-bool GetCoinAge(const CTransaction& tx, const CCoinsViewCache &view, uint64_t& nCoinAge); // peercoin: get transaction coin age
+bool GetCoinAge(const CTransaction& tx, const CCoinsViewCache &view, uint64_t& nCoinAge); // sumcoin: get transaction coin age
 bool SignBlock(CBlock& block, const CKeyStore& keystore);
 bool CheckBlockSignature(const CBlock& block);
 

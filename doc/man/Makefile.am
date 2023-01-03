@@ -5,9 +5,9 @@ if BUILD_BITCOIND
 endif
 
 if ENABLE_QT
-  dist_man1_MANS+=peercoin-qt.1
+  dist_man1_MANS+=sumcoin-qt.1
 endif
 
 if BUILD_BITCOIN_UTILS
-  dist_man1_MANS+=peercoin-cli.1 peercoin-tx.1
+  dist_man1_MANS+=sumcoin-cli.1 sumcoin-tx.1
 endif
