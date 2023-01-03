@@ -29,7 +29,7 @@ Homepage: https://www.peercoin.net/
 Vcs-Git: git://github.com/peercoin/peercoin.git
 Vcs-Browser: https://github.com/peercoin/peercoin
 
-Package: peercoind
+Package: sumcoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -37,7 +37,7 @@ Description: peer-to-peer network based digital currency - daemon
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
  .
- This package provides the daemon, peercoind, and the CLI tool
+ This package provides the daemon, sumcoind, and the CLI tool
  peercoin-cli to interact with the daemon.
 
 Package: peercoin-qt

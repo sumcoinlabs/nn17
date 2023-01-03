@@ -15,7 +15,7 @@ The following are some helpful notes on how to run Sumcoin on your native platfo
 Unpack the files into a directory and run:
 
 - `bin/peercoin-qt` (GUI) or
-- `bin/peercoind` (headless)
+- `bin/sumcoind` (headless)
 
 ### Windows
 

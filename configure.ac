@@ -18,7 +18,7 @@ AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=peercoind
+BITCOIN_DAEMON_NAME=sumcoind
 BITCOIN_GUI_NAME=peercoin-qt
 BITCOIN_CLI_NAME=peercoin-cli
 BITCOIN_TX_NAME=peercoin-tx

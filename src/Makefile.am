@@ -65,7 +65,7 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += peercoind
+  bin_PROGRAMS += sumcoind
 endif
 
 if BUILD_BITCOIN_UTILS
@@ -243,7 +243,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between peercoind and peercoin-qt, but only linked
+# wallet: shared between sumcoind and peercoin-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -321,7 +321,7 @@ libbitcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between peercoind, and peercoin-qt and non-server tools
+# common: shared between sumcoind, and peercoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -382,7 +382,7 @@ libbitcoin_cli_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# peercoind binary #
+# sumcoind binary #
 peercoind_SOURCES = bitcoind.cpp
 peercoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 peercoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
