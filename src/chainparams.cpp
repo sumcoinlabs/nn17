@@ -101,19 +101,21 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.BIP16Height = 0;
-        consensus.BIP34Height = 339994;
+        consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("000000000000000237f50af4cfe8924e8693abc5bd8ae5abb95bc6d230f5953f");
         consensus.powLimit =            uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 32;
         consensus.bnInitialHashTarget = uint256S("0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 40;
 
         consensus.nTargetTimespan = 7 * 24 * 60 * 60;  // one week
-        consensus.nStakeTargetSpacing = 10 * 60; // 10-minute block spacing
+        consensus.nStakeTargetSpacing = 1 * 60; // 1-minute block spacing
         consensus.nTargetSpacingWorkMax = 12 * consensus.nStakeTargetSpacing; // 2-hour
         consensus.nPowTargetSpacing = consensus.nStakeTargetSpacing;
-        consensus.nStakeMinAge = 60 * 60 * 24 * 30; // minimum age for coin age
+        consensus.nStakeMinAge = 60 * 60 * 24 * 1; // minimum age for coin age
         consensus.nStakeMaxAge = 60 * 60 * 24 * 90;
-        consensus.nModifierInterval = 6 * 60 * 60; // Modifier interval: time to elapse before new modifier is computed
+        consensus.nModifierInterval = 6 * 60; // Modifier interval: time to elapse before new modifier is computed
         consensus.nCoinbaseMaturity = 500;
+        // consensus.SegwitHeight = 1001;
+
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -121,28 +123,28 @@ public:
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000002a0fac8b39f476"); // 350000
+        consensus.nMinimumChainWork =  uint256S("0x0000000000000000000000000000000000000000000000000000000000000000"); // 1000
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xa3a0ffa0dbca75923ad6a53d3878d62f8b35c363282df3f13ded9e4fda921e63");  // 380000
+        consensus.defaultAssumeValid =  uint256S("0x");  // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xe6;
-        pchMessageStart[1] = 0xe8;
-        pchMessageStart[2] = 0xe9;
-        pchMessageStart[3] = 0xe5;
-        vAlertPubKey = ParseHex("04201f0f85178950503c20d5a947883dff81e727533f1f1da104755fa25275cf68c442b8ad50da3152c10a74ea621da614d3d2048ba25a14f39bfc40c41223543a");
+        pchMessageStart[0] = 0xa1;
+        pchMessageStart[1] = 0xe6;
+        pchMessageStart[2] = 0xf9;
+        pchMessageStart[3] = 0xa2;
+        vAlertPubKey = ParseHex("04c7f7f456da3181ee07967bce94b39b88fb313eedc3934579ef8365e3dec30618818af9331417af8d26d8a8f24bb1613a84516385d24846ec2a23479da4d9ea53");
         nDefaultPort = 3333;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1345083810, 1345084287, 2179302059u, 0x1d00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0000000032fe677166d54963b62a4677d8957e87c508eaa4fd7eb1c880cd27e3"));
-        assert(genesis.hashMerkleRoot == uint256S("0x3c2d8f85fab4d17aac558cc648a1a58acff0de6deb890c29985690052c5993c2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -153,11 +155,12 @@ public:
       //  vSeeds.emplace_back("seed.peercoin.net");
 
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'S'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,117); // sumcoin: addresses begin with 'p'
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,183);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'P' : Hex 3F
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // hex 7D
+      // Segwit  base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,200); //
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,187); // Hex bb
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB4, 0x2C};
+        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAB, 0xE7};
 
         // human readable prefix to bench32 address
         bech32_hrp = "sum";
