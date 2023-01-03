@@ -11,13 +11,13 @@ bin
 *.exe
 src/*.exe
 src/*/*.exe
-src/peercoin
+src/sumcoin
 src/sumcoind
-src/peercoin-cli
-src/peercoin-tx
-src/test/test_peercoin
-src/test/test_peercoin_fuzzy
-src/qt/test/test_peercoin-qt
+src/sumcoin-cli
+src/sumcoin-tx
+src/test/test_sumcoin
+src/test/test_sumcoin_fuzzy
+src/qt/test/test_sumcoin-qt
 
 # autoreconf
 Makefile.in
@@ -73,7 +73,7 @@ src/qt/bitcoin-qt.includes
 *.o-*
 *.patch
 .ppcoin
-.peercoin
+.sumcoin
 *.a
 *.pb.cc
 *.pb.h
@@ -93,7 +93,7 @@ src/qt/bitcoin-qt.includes
 *.qm
 Makefile
 ppcoin-qt
-peercoin-qt
+sumcoin-qt
 PPCoin-Qt.app
 Sumcoin-Qt.app
 background.tiff*
@@ -101,7 +101,7 @@ background.tiff*
 # Unit-tests
 Makefile.test
 ppcoin-qt_test
-peercoin-qt_test
+sumcoin-qt_test
 
 # Resources cpp
 qrc_*.cpp

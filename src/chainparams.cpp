@@ -152,7 +152,7 @@ public:
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
 
-      //  vSeeds.emplace_back("seed.peercoin.net");
+      //  vSeeds.emplace_back("seed.sumcoin.org");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'P' : Hex 3F
@@ -239,7 +239,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-      //  vSeeds.emplace_back("tseed.peercoin.net");
+      //  vSeeds.emplace_back("tseed.sumcoin.org");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);

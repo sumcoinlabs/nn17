@@ -222,8 +222,8 @@
         <translation>Ички ойналар асбоблар панели</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Тўловлар (QR кодлари ва peercoin ёрдамида яратишлар: URI’лар) сўраш</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Тўловлар (QR кодлари ва sumcoin ёрдамида яратишлар: URI’лар) сўраш</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -234,7 +234,7 @@
         <translation>Фойдаланилган қабул қилинган манзиллар ва ёрлиқлар рўйхатини кўрсатиш</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
+        <source>Open a sumcoin: URI or payment request</source>
         <translation>Sumcoin’ни очиш: URI ёки тўлов сўрови</translation>
     </message>
     <message>

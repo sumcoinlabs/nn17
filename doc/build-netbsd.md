@@ -25,7 +25,7 @@ python27
 
 Download the source code:
 ```
-git clone https://github.com/peercoin/peercoin
+git clone sumcoinhttps://github.com/sumcoinlabs/sumcoin
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.

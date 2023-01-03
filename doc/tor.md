@@ -7,7 +7,7 @@ The following directions assume you have a Tor proxy running on port 9050. Many 
 configure Tor.
 
 
-1. Run peercoin behind a Tor proxy
+1. Run sumcoin behind a Tor proxy
 ---------------------------------
 
 The first step is running Sumcoin behind a Tor proxy. This will already make all
@@ -31,17 +31,17 @@ outgoing connections be anonymized, but more is possible.
 
 In a typical situation, this suffices to run behind a Tor proxy:
 
-	./peercoin -proxy=127.0.0.1:9050
+	./sumcoin -proxy=127.0.0.1:9050
 
 
-2. Run a peercoin hidden server
+2. Run a sumcoin hidden server
 ------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
 config file):
 
-	HiddenServiceDir /var/lib/tor/peercoin-service/
+	HiddenServiceDir /var/lib/tor/sumcoin-service/
 	HiddenServicePort 8333 127.0.0.1:8333
 	HiddenServicePort 18333 127.0.0.1:18333
 
@@ -86,7 +86,7 @@ and open port 8333 on your firewall (or use -upnp).
 If you only want to use Tor to reach onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
 
-	./peercoin -onion=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -discover
+	./sumcoin -onion=127.0.0.1:9050 -externalip=57qr3yd1nyntf5k.onion -discover
 
 3. Automatically listen on Tor
 --------------------------------
@@ -118,7 +118,7 @@ Tor configuration.
 4. Privacy recommendations
 ---------------------------
 
-- Do not add anything but peercoin ports to the hidden service created in section 2.
+- Do not add anything but sumcoin ports to the hidden service created in section 2.
   If you run a web service too, create a new hidden service for that.
   Otherwise it is trivial to link them, which may reduce privacy. Hidden
   services created automatically (as in section 3) always have only one port
