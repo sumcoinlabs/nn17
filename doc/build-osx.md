@@ -40,7 +40,7 @@ from the root of the repository.
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
-Build Peercoin Core
+Build Sumcoin Core
 ------------------------
 
 1. Clone the peercoin source code and cd into `peercoin`
@@ -69,19 +69,19 @@ Build Peercoin Core
 Running
 -------
 
-Peercoin Core is now available at `./src/peercoind`
+Sumcoin Core is now available at `./src/peercoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=peercoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Peercoin/peercoin.conf"
+    echo -e "rpcuser=peercoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Sumcoin/peercoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Peercoin/peercoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Sumcoin/peercoin.conf"
 
 The first time you run peercoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Peercoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Sumcoin/debug.log
 
 Other commands:
 -------

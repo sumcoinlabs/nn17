@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Peercoin
-Comment=Desktop allet for Peercoin Cryptocurrency
-Comment[de]=Offizieller Client für die Kryptowährung Peercoin
+Name=Sumcoin
+Comment=Desktop allet for Sumcoin Cryptocurrency
+Comment[de]=Offizieller Client für die Kryptowährung Sumcoin
 Exec=peercoin-qt %u
 Terminal=false
 Type=Application
 Icon=/usr/share/pixmaps/peercoin128.png
 MimeType=x-scheme-handler/peercoin;
 Categories=Office;Finance;
-StartupWMClass=Peercoin-qt
+StartupWMClass=Sumcoin-qt

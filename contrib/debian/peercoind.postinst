@@ -10,12 +10,12 @@ conf() {
 		USER=$( basename ${_HOME} )
 
 		if [ ! -d "$_HOME/.peercoin" ]; then
-			echo "Peercoin directory not found for user $USER! Creating one now."
+			echo "Sumcoin directory not found for user $USER! Creating one now."
 			mkdir $_HOME/.peercoin
 		fi
 
 		if [ ! -f $_HOME/.peercoin/peercoin.conf ]; then
-			echo "Peercoin configuration file not found for user $USER! Creating one now."
+			echo "Sumcoin configuration file not found for user $USER! Creating one now."
 			echo -e "rpcuser=rpcuser\nrpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c10)" > $_HOME/.peercoin/peercoin.conf
 		fi
 		chown -R $USER: $_HOME/.peercoin

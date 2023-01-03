@@ -1,7 +1,7 @@
 Benchmarking
 ============
 
-Peercoin has an internal benchmarking framework, with benchmarks
+Sumcoin has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well as the rolling bloom filter.
 
 Running

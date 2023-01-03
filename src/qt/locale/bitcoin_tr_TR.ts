@@ -62,12 +62,12 @@
         <translation>Alınan Adresler</translation>
     </message>
     <message>
-        <source>These are your Peercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödeme göndermek için gereken Peercoin adreslerinizdir. Para göndermeden önce her zaman miktarı ve alıcı adresi kontrol edin.</translation>
+        <source>These are your Sumcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödeme göndermek için gereken Sumcoin adreslerinizdir. Para göndermeden önce her zaman miktarı ve alıcı adresi kontrol edin.</translation>
     </message>
     <message>
-        <source>These are your Peercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Bunlar ödeme almak için kullanılacak Peercoin adreslerinizdir. Her işlem için yeni bir ödeme alma adresi kullanılması tavsiye edilir.</translation>
+        <source>These are your Sumcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Bunlar ödeme almak için kullanılacak Sumcoin adreslerinizdir. Her işlem için yeni bir ödeme alma adresi kullanılması tavsiye edilir.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -286,8 +286,8 @@
         <translation>Bloklar disk üzerinde yeniden indeksleniyor...</translation>
     </message>
     <message>
-        <source>Send coins to a Peercoin address</source>
-        <translation>Peercoin adresine madeni para gönderin</translation>
+        <source>Send coins to a Sumcoin address</source>
+        <translation>Sumcoin adresine madeni para gönderin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -302,8 +302,8 @@
         <translation>Onay mesajı...</translation>
     </message>
     <message>
-        <source>Peercoin</source>
-        <translation>Peercoin
+        <source>Sumcoin</source>
+        <translation>Sumcoin
 </translation>
     </message>
     <message>
@@ -462,8 +462,8 @@
         <translation>Gönderim adresini düzenleyin</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Peercoin address.</source>
-        <translation>Girilen adres "%1" Peercoin adresiyle eşleşmiyor.</translation>
+        <source>The entered address "%1" is not a valid Sumcoin address.</source>
+        <translation>Girilen adres "%1" Sumcoin adresiyle eşleşmiyor.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -519,8 +519,8 @@
         <translation>Hoş geldiniz</translation>
     </message>
     <message>
-        <source>Peercoin</source>
-        <translation>Peercoin
+        <source>Sumcoin</source>
+        <translation>Sumcoin
 </translation>
     </message>
     <message>
@@ -652,7 +652,7 @@
         <translation>Form</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Peercoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Sumcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Gösterilen bilgi geçerli olmayabilir. Bağlantı tekrar sağlandıktan sonra cüzdanınız otomatik olarak senkronize olacaktır. Henüz senkronize olma işlemi tamamlanmadı.</translation>
     </message>
     <message>
@@ -733,8 +733,8 @@
 <context>
     <name>QObject</name>
     <message>
-        <source>Enter a Peercoin address (e.g. %1)</source>
-        <translation>Peercoin adresinizi girin (örneğin %1)</translation>
+        <source>Enter a Sumcoin address (e.g. %1)</source>
+        <translation>Sumcoin adresinizi girin (örneğin %1)</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1110,8 +1110,8 @@
         <translation>Coin gönderimini onaylayın</translation>
     </message>
     <message>
-        <source>Warning: Invalid Peercoin address</source>
-        <translation>Uyarı: Hatalı Peercoin adresi</translation>
+        <source>Warning: Invalid Sumcoin address</source>
+        <translation>Uyarı: Hatalı Sumcoin adresi</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1411,8 +1411,8 @@
         <translation>JSON-RPC komutları ile komut satırını onaylayın</translation>
     </message>
     <message>
-        <source>Peercoin Core</source>
-        <translation>Peercoin Çekirdeği</translation>
+        <source>Sumcoin Core</source>
+        <translation>Sumcoin Çekirdeği</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

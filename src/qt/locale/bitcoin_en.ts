@@ -80,12 +80,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your Peercoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Sumcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your Peercoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Sumcoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -435,8 +435,8 @@
     </message>
     <message>
         <location line="-511"/>
-        <source>Send coins to a Peercoin address</source>
-        <translation>Send coins to a Peercoin address</translation>
+        <source>Send coins to a Sumcoin address</source>
+        <translation>Send coins to a Sumcoin address</translation>
     </message>
     <message>
         <location line="+67"/>
@@ -465,8 +465,8 @@
     </message>
     <message>
         <location line="+517"/>
-        <source>Peercoin</source>
-        <translation>Peercoin</translation>
+        <source>Sumcoin</source>
+        <translation>Sumcoin</translation>
     </message>
     <message>
         <location line="-743"/>
@@ -500,13 +500,13 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Peercoin addresses to prove you own them</source>
-        <translation>Sign messages with your Peercoin addresses to prove you own them</translation>
+        <source>Sign messages with your Sumcoin addresses to prove you own them</source>
+        <translation>Sign messages with your Sumcoin addresses to prove you own them</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Peercoin addresses</source>
-        <translation>Verify messages to ensure they were signed with specified Peercoin addresses</translation>
+        <source>Verify messages to ensure they were signed with specified Sumcoin addresses</source>
+        <translation>Verify messages to ensure they were signed with specified Sumcoin addresses</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -555,10 +555,10 @@
     </message>
     <message numerus="yes">
         <location line="+357"/>
-        <source>%n active connection(s) to Peercoin network</source>
+        <source>%n active connection(s) to Sumcoin network</source>
         <translation>
-            <numerusform>%n active connection to Peercoin network</numerusform>
-            <numerusform>%n active connections to Peercoin network</numerusform>
+            <numerusform>%n active connection to Sumcoin network</numerusform>
+            <numerusform>%n active connections to Sumcoin network</numerusform>
         </translation>
     </message>
     <message>
@@ -616,7 +616,7 @@
     </message>
     <message>
         <location line="-441"/>
-        <source>Show the %1 help message to get a list with possible Peercoin command-line options</source>
+        <source>Show the %1 help message to get a list with possible Sumcoin command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -696,7 +696,7 @@
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+531"/>
-        <source>A fatal error occurred. Peercoin can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Sumcoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -939,7 +939,7 @@
     </message>
     <message>
         <location line="+72"/>
-        <source>The entered address &quot;%1&quot; is not a valid Peercoin address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Sumcoin address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1099,8 +1099,8 @@
     </message>
     <message>
         <location filename="../intro.cpp" line="+20"/>
-        <source>Peercoin</source>
-        <translation type="unfinished">Peercoin</translation>
+        <source>Sumcoin</source>
+        <translation type="unfinished">Sumcoin</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -1114,7 +1114,7 @@
     </message>
     <message>
         <location line="+8"/>
-        <source>%1 will download and store a copy of the Peercoin block chain.</source>
+        <source>%1 will download and store a copy of the Sumcoin block chain.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1380,8 +1380,8 @@
     </message>
     <message>
         <location line="+30"/>
-        <source>Automatically open the Peercoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatically open the Peercoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
+        <source>Automatically open the Sumcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatically open the Sumcoin client port on the router. This only works when your router supports UPnP and it is enabled.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1400,7 +1400,7 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Peercoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the Sumcoin network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1448,7 +1448,7 @@
     </message>
     <message>
         <location line="+25"/>
-        <source>Connect to the Peercoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Sumcoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1583,8 +1583,8 @@
     <message>
         <location line="+62"/>
         <location line="+386"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Peercoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Peercoin network after a connection is established, but this process has not completed yet.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Sumcoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>The displayed information may be out of date. Your wallet automatically synchronizes with the Sumcoin network after a connection is established, but this process has not completed yet.</translation>
     </message>
     <message>
         <location line="-139"/>
@@ -1703,7 +1703,7 @@
     </message>
     <message>
         <location line="+8"/>
-        <source>URI cannot be parsed! This can be caused by an invalid Peercoin address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Sumcoin address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1835,7 +1835,7 @@
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+130"/>
-        <source>Enter a Peercoin address (e.g. %1)</source>
+        <source>Enter a Sumcoin address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2421,7 +2421,7 @@
     <message>
         <location line="-3"/>
         <location line="+46"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Peercoin network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Sumcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2950,7 +2950,7 @@
     </message>
     <message>
         <location line="+101"/>
-        <source>Warning: Invalid Peercoin address</source>
+        <source>Warning: Invalid Sumcoin address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3005,7 +3005,7 @@
     </message>
     <message>
         <location line="+39"/>
-        <source>The Peercoin address to send the payment to</source>
+        <source>The Sumcoin address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3067,7 +3067,7 @@
     </message>
     <message>
         <location line="+54"/>
-        <source>A message that was attached to the peercoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Peercoin network.</source>
+        <source>A message that was attached to the peercoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sumcoin network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3129,7 +3129,7 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>The Peercoin address to sign the message with</source>
+        <source>The Sumcoin address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3171,8 +3171,8 @@
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Peercoin address</source>
-        <translation>Sign the message to prove you own this Peercoin address</translation>
+        <source>Sign the message to prove you own this Sumcoin address</source>
+        <translation>Sign the message to prove you own this Sumcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3202,13 +3202,13 @@
     </message>
     <message>
         <location line="+21"/>
-        <source>The Peercoin address the message was signed with</source>
+        <source>The Sumcoin address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Verify the message to ensure it was signed with the specified Peercoin address</source>
-        <translation>Verify the message to ensure it was signed with the specified Peercoin address</translation>
+        <source>Verify the message to ensure it was signed with the specified Sumcoin address</source>
+        <translation>Verify the message to ensure it was signed with the specified Sumcoin address</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4100,8 +4100,8 @@
     </message>
     <message>
         <location line="-395"/>
-        <source>Peercoin Core</source>
-        <translation type="unfinished">Peercoin Core</translation>
+        <source>Sumcoin Core</source>
+        <translation type="unfinished">Sumcoin Core</translation>
     </message>
     <message>
         <location line="+1"/>

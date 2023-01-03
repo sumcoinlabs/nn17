@@ -1,5 +1,5 @@
 [Unit]
-Description=Peercoin daemon - tor
+Description=Sumcoin daemon - tor
 After=network.target
 Wants=tor.service
 Conflicts=peercoind@%i.service

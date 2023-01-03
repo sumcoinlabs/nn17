@@ -30,7 +30,7 @@ git clone https://github.com/peercoin/peercoin
 
 See [dependencies.md](dependencies.md) for a complete overview.
 
-### Building Peercoin
+### Building Sumcoin
 
 **Important**: Use `gmake` (the non-GNU `make` will exit with an error).
 

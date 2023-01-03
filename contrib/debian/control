@@ -33,7 +33,7 @@ Package: peercoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Peercoin is a crypto-currency project forked from Bitcoin with aim to achieve
+ Sumcoin is a crypto-currency project forked from Bitcoin with aim to achieve
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
  .
@@ -44,17 +44,17 @@ Package: peercoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Peercoin is a crypto-currency project forked from Bitcoin with aim to achieve
+ Sumcoin is a crypto-currency project forked from Bitcoin with aim to achieve
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
  .
- This package provides Peercoin-Qt, a GUI client for Peercoin based on Qt.
+ This package provides Sumcoin-Qt, a GUI client for Sumcoin based on Qt.
 
 Package: peercoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Peercoin is a crypto-currency project forked from Bitcoin with aim to achieve
+ Sumcoin is a crypto-currency project forked from Bitcoin with aim to achieve
  energy-efficiency and keep as much as possible the original Bitcoin's
  preferable properties.
  This package provides peercoin-tx, a command-line transaction creation

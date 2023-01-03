@@ -51,7 +51,7 @@
 #include <boost/thread.hpp>
 
 #if defined(NDEBUG)
-# error "Peercoin cannot be compiled without assertions."
+# error "Sumcoin cannot be compiled without assertions."
 #endif
 
 #define MICRO 0.000001
@@ -233,7 +233,7 @@ CTxMemPool mempool;
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const std::string strMessageMagic = "Peercoin Signed Message:\n";
+const std::string strMessageMagic = "Sumcoin Signed Message:\n";
 
 // Internal stuff
 namespace {

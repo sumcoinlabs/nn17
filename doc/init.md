@@ -68,9 +68,9 @@ can then be controlled by group membership.
 ### Mac OS X
 
 Binary:              `/usr/local/bin/peercoind`  
-Configuration file:  `~/Library/Application Support/Peercoin/peercoin.conf`  
-Data directory:      `~/Library/Application Support/Peercoin`  
-Lock file:           `~/Library/Application Support/Peercoin/.lock`  
+Configuration file:  `~/Library/Application Support/Sumcoin/peercoin.conf`  
+Data directory:      `~/Library/Application Support/Sumcoin`  
+Lock file:           `~/Library/Application Support/Sumcoin/.lock`  
 
 Installing Service Configuration
 -----------------------------------

@@ -38,7 +38,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/bitcoin/bitcoin.git
 
-### Peercoin maintainers/release engineers, suggestion for writing release notes
+### Sumcoin maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -298,7 +298,7 @@ bitcoin.org (see below for bitcoin.org update instructions).
 
   - Update title of #peercoin on Freenode IRC
 
-  - Optionally twitter, reddit /r/Peercoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Sumcoin, ... but this will usually sort out itself
 
   - Notify BlueMatt so that he can start building [the PPAs](https://launchpad.net/~bitcoin/+archive/ubuntu/bitcoin)
 
