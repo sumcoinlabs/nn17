@@ -227,7 +227,7 @@ def main():
         sys.exit(0)
 
     if not (enable_wallet and enable_utils and enable_bitcoind):
-        print("No functional tests to run. Wallet, utils, and peercoind must all be enabled")
+        print("No functional tests to run. Wallet, utils, and sumcoind must all be enabled")
         print("Rerun `configure` with -enable-wallet, -with-utils and -with-daemon and rerun make")
         sys.exit(0)
 
@@ -280,10 +280,10 @@ def main():
     run_tests(test_list, config["environment"]["SRCDIR"], config["environment"]["BUILDDIR"], config["environment"]["EXEEXT"], tmpdir, args.jobs, args.coverage, passon_args, args.combinedlogslen)
 
 def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_coverage=False, args=[], combined_logs_len=0):
-    # Warn if peercoind is already running (unix only)
+    # Warn if sumcoind is already running (unix only)
     try:
-        if subprocess.check_output(["pidof", "peercoind"]) is not None:
-            print("%sWARNING!%s There is already a peercoind process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
+        if subprocess.check_output(["pidof", "sumcoind"]) is not None:
+            print("%sWARNING!%s There is already a sumcoind process running on this system. Tests may fail unexpectedly due to resource contention!" % (BOLD[1], BOLD[0]))
     except (OSError, subprocess.SubprocessError):
         pass
 
@@ -294,7 +294,7 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
 
     #Set env vars
     if "BITCOIND" not in os.environ:
-        os.environ["BITCOIND"] = build_dir + '/src/peercoind' + exeext
+        os.environ["BITCOIND"] = build_dir + '/src/sumcoind' + exeext
         os.environ["BITCOINCLI"] = build_dir + '/src/peercoin-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'

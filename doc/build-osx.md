@@ -69,7 +69,7 @@ Build Sumcoin Core
 Running
 -------
 
-Sumcoin Core is now available at `./src/peercoind`
+Sumcoin Core is now available at `./src/sumcoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
@@ -77,7 +77,7 @@ Before running, it's recommended you create an RPC configuration file.
 
     chmod 600 "/Users/${USER}/Library/Application Support/Sumcoin/peercoin.conf"
 
-The first time you run peercoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run sumcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
@@ -86,7 +86,7 @@ You can monitor the download process by looking at the debug.log file:
 Other commands:
 -------
 
-    ./src/peercoind -daemon # Starts the peercoin daemon.
+    ./src/sumcoind -daemon # Starts the peercoin daemon.
     ./src/peercoin-cli --help # Outputs a list of command-line options.
     ./src/peercoin-cli help # Outputs a list of RPC commands when the daemon is running.
 
