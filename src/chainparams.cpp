@@ -123,14 +123,14 @@ public:
       //  vSeeds.emplace_back("seed.peercoin.net");
 
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,55);  // peercoin: addresses begin with 'P'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,117); // peercoin: addresses begin with 'p'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'S'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,117); // sumcoin: addresses begin with 'p'
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,183);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
         // human readable prefix to bench32 address
-        bech32_hrp = "pc";
+        bech32_hrp = "sum";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -206,10 +206,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("tseed.peercoin.net");
-        vSeeds.emplace_back("tseed2.peercoin.net");
-        vSeeds.emplace_back("tseed.peercoin-library.org");
-        vSeeds.emplace_back("testseed.ppcoin.info");
+      //  vSeeds.emplace_back("tseed.peercoin.net");
+
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -218,7 +216,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
         // human readable prefix to bench32 address
-        bech32_hrp = "tpc";
+        bech32_hrp = "tsum";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
