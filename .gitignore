@@ -95,7 +95,7 @@ Makefile
 ppcoin-qt
 peercoin-qt
 PPCoin-Qt.app
-Peercoin-Qt.app
+Sumcoin-Qt.app
 background.tiff*
 
 # Unit-tests

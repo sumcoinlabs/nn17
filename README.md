@@ -23,7 +23,7 @@ more adaptive response to rapid change in network computation power.
 [Source Code](https://github.com/sumcoinlabs/sumcoin)
 * Documentation: [Sumcoin 
 Whitepaper](https://sumcoin.org/resources#whitepaper),
-[Peercoin Docs](https://docs.sumcoin.org)
+[Sumcoin Docs](https://docs.sumcoin.org)
 * Help: 
 [Forum](https://talk.sumcoin.org),
 [Intro & Important 
