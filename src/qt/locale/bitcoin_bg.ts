@@ -406,7 +406,7 @@
         <translation>Раздели</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
         <translation>Изискване на плащания(генерира QR кодове и пиркойн: URIs)</translation>
     </message>
     <message>
@@ -418,7 +418,7 @@
         <translation>Покажи списък с използваните адреси и имена.</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
+        <source>Open a sumcoin: URI or payment request</source>
         <translation>Отворете пиркойн: URI  или заявка за плащане</translation>
     </message>
     <message>
@@ -1094,7 +1094,7 @@
         <translation>Възникна грешка по време назаявката за плащане</translation>
     </message>
     <message>
-        <source>Cannot start peercoin: click-to-pay handler</source>
+        <source>Cannot start sumcoin: click-to-pay handler</source>
         <translation>Пиркойн не можe да се стартира: click-to-pay handler</translation>
     </message>
     <message>

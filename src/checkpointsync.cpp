@@ -69,7 +69,7 @@ const std::string CSyncCheckpoint::strTestPubKey = "046cad3d8254b182a4e5289d01d1
 std::string CSyncCheckpoint::strMasterPrivKey = "";
 
 
-// peercoin: synchronized checkpoint (centrally broadcasted)
+// sumcoin: synchronized checkpoint (centrally broadcasted)
 uint256 hashSyncCheckpoint = uint256();
 uint256 hashPendingCheckpoint = uint256();
 CSyncCheckpoint checkpointMessage;
@@ -78,7 +78,7 @@ uint256 hashInvalidCheckpoint = uint256();
 CCriticalSection cs_hashSyncCheckpoint;
 std::string strCheckpointWarning;
 
-// peercoin: get last synchronized checkpoint
+// sumcoin: get last synchronized checkpoint
 CBlockIndex* GetLastSyncCheckpoint()
 {
     LOCK(cs_hashSyncCheckpoint);
@@ -89,7 +89,7 @@ CBlockIndex* GetLastSyncCheckpoint()
     return NULL;
 }
 
-// peercoin: only descendant of current sync-checkpoint is allowed
+// sumcoin: only descendant of current sync-checkpoint is allowed
 bool ValidateSyncCheckpoint(uint256 hashCheckpoint)
 {
     if (!mapBlockIndex.count(hashSyncCheckpoint))
@@ -239,7 +239,7 @@ bool CheckSyncCheckpoint(const uint256& hashBlock, const CBlockIndex* pindexPrev
 //    return true;
 }
 
-// peercoin: reset synchronized checkpoint to last hardened checkpoint
+// sumcoin: reset synchronized checkpoint to last hardened checkpoint
 bool ResetSyncCheckpoint()
 {
     LOCK(cs_hashSyncCheckpoint);
@@ -364,7 +364,7 @@ bool IsSyncCheckpointTooOld(unsigned int nSeconds)
     return (pindexSync->GetBlockTime() + nSeconds < GetAdjustedTime());
 }
 
-// peercoin: verify signature of sync-checkpoint message
+// sumcoin: verify signature of sync-checkpoint message
 bool CSyncCheckpoint::CheckSignature()
 {
     std::string strMasterPubKey = Params().NetworkIDString() == CBaseChainParams::TESTNET ? CSyncCheckpoint::strTestPubKey : CSyncCheckpoint::strMainPubKey;
@@ -378,7 +378,7 @@ bool CSyncCheckpoint::CheckSignature()
     return true;
 }
 
-// peercoin: process synchronized checkpoint
+// sumcoin: process synchronized checkpoint
 bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
 {
     if (!CheckSignature())

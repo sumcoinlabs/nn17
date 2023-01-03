@@ -6,7 +6,7 @@ for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well
 
 Running
 ---------------------
-After compiling peercoin, the benchmarks can be run with:
+After compiling sumcoin, the benchmarks can be run with:
 
     src/bench/bench_bitcoin
 

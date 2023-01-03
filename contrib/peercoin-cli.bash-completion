@@ -1,9 +1,9 @@
-# bash programmable completion for peercoin-cli(1)
+# bash programmable completion for sumcoin-cli(1)
 # Copyright (c) 2012-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-# call $peercoin-cli for RPC
+# call $sumcoin-cli for RPC
 _peercoin_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
@@ -28,8 +28,8 @@ _peercoin_cli() {
     local cur prev words=() cword
     local peercoin_cli
 
-    # save and use original argument to invoke peercoin-cli for -help, help and RPC
-    # as peercoin-cli might not be in $PATH
+    # save and use original argument to invoke sumcoin-cli for -help, help and RPC
+    # as sumcoin-cli might not be in $PATH
     peercoin_cli="$1"
 
     COMPREPLY=()
@@ -143,7 +143,7 @@ _peercoin_cli() {
             ;;
     esac
 } &&
-complete -F _peercoin_cli peercoin-cli
+complete -F _peercoin_cli sumcoin-cli
 
 # Local variables:
 # mode: shell-script

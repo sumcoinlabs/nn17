@@ -1,6 +1,6 @@
 [Protocol]
-exec=peercoin-qt '%u'
-protocol=peercoin
+exec=sumcoin-qt '%u'
+protocol=sumcoin
 input=none
 output=none
 helper=true

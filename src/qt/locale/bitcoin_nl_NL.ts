@@ -414,8 +414,8 @@
         <translation>Tabs taakbalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Betalingen aanvragen (genereert QR codes en peercoin: URI's)</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Betalingen aanvragen (genereert QR codes en sumcoin: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -426,8 +426,8 @@
         <translation>Toon de lijst van gebruikte ontvangst adressen en labels</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
-        <translation>Open een peercoin: URI of betaalverzoek</translation>
+        <source>Open a sumcoin: URI or payment request</source>
+        <translation>Open een sumcoin: URI of betaalverzoek</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

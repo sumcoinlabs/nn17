@@ -69,7 +69,7 @@ if BUILD_BITCOIND
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += peercoin-cli peercoin-tx
+  bin_PROGRAMS += sumcoin-cli sumcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -243,7 +243,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between sumcoind and peercoin-qt, but only linked
+# wallet: shared between sumcoind and sumcoin-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -321,7 +321,7 @@ libbitcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between sumcoind, and peercoin-qt and non-server tools
+# common: shared between sumcoind, and sumcoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -372,7 +372,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between peercoin-cli and peercoin-qt
+# cli: shared between sumcoin-cli and sumcoin-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -408,7 +408,7 @@ peercoind_LDADD = \
 
 peercoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# peercoin-cli binary #
+# sumcoin-cli binary #
 peercoin_cli_SOURCES = bitcoin-cli.cpp
 peercoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 peercoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -427,7 +427,7 @@ peercoin_cli_LDADD = \
 peercoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# peercoin-tx binary #
+# sumcoin-tx binary #
 peercoin_tx_SOURCES = \
   bitcoin-tx.cpp \
   timedatadummy.cpp

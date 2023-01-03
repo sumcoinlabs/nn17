@@ -96,7 +96,7 @@ void BlockAssembler::resetBlock()
     nFees = 0;
 }
 
-// peercoin: if pwallet != NULL it will attempt to create coinstake
+// sumcoin: if pwallet != NULL it will attempt to create coinstake
 std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bool fMineWitnessTx, CWallet* pwallet, bool* pfPoSCancel)
 {
     int64_t nTimeStart = GetTimeMicros();
@@ -131,7 +131,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     pblocktemplate->vTxFees.push_back(-1); // updated at end
     pblocktemplate->vTxSigOpsCost.push_back(-1); // updated at end
 
-    // peercoin: if coinstake available add coinstake tx
+    // sumcoin: if coinstake available add coinstake tx
     static int64_t nLastCoinStakeSearchTime = GetAdjustedTime();  // only initialized at startup
 
     if (pwallet)  // attemp to find a coinstake
@@ -157,7 +157,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
             nLastCoinStakeSearchTime = nSearchTime;
         }
         if (*pfPoSCancel)
-            return nullptr; // peercoin: there is no point to continue if we failed to create coinstake
+            return nullptr; // sumcoin: there is no point to continue if we failed to create coinstake
     }
 
     LOCK(mempool.cs);
@@ -256,7 +256,7 @@ bool BlockAssembler::TestPackageTransactions(const CTxMemPool::setEntries& packa
         if (!fIncludeWitness && it->GetTx().HasWitness())
             return false;
 
-        // peercoin: timestamp limit
+        // sumcoin: timestamp limit
         if (it->GetTx().nTime > GetAdjustedTime() || (pblock->IsProofOfStake() && it->GetTx().nTime > pblock->vtx[1]->nTime))
             return false;
     }
@@ -511,7 +511,7 @@ static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainpar
 void PoSMiner(CWallet *pwallet)
 {
     LogPrintf("CPUMiner started for proof-of-stake\n");
-    RenameThread("peercoin-stake-minter");
+    RenameThread("sumcoin-stake-minter");
 
     unsigned int nExtraNonce = 0;
 
@@ -587,7 +587,7 @@ void PoSMiner(CWallet *pwallet)
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            // peercoin: if proof-of-stake block found then process block
+            // sumcoin: if proof-of-stake block found then process block
             if (pblock->IsProofOfStake())
             {
                 pblock->nFlags = CBlockIndex::BLOCK_PROOF_OF_STAKE;
@@ -619,7 +619,7 @@ void PoSMiner(CWallet *pwallet)
     }
 }
 
-// peercoin: stake minter thread
+// sumcoin: stake minter thread
 void static ThreadStakeMinter(void* parg)
 {
     LogPrintf("ThreadStakeMinter started\n");
@@ -636,10 +636,10 @@ void static ThreadStakeMinter(void* parg)
     LogPrintf("ThreadStakeMinter exiting\n");
 }
 
-// peercoin: stake minter
+// sumcoin: stake minter
 void MintStake(boost::thread_group& threadGroup)
 {
-    // peercoin: mint proof-of-stake blocks in the background
+    // sumcoin: mint proof-of-stake blocks in the background
     if (!vpwallets.empty())
         threadGroup.create_thread(boost::bind(&ThreadStakeMinter, vpwallets[0]));
 }

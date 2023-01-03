@@ -296,7 +296,7 @@ bitcoin.org (see below for bitcoin.org update instructions).
 
   - bitcoincore.org blog post
 
-  - Update title of #peercoin on Freenode IRC
+  - Update title of #sumcoin on Freenode IRC
 
   - Optionally twitter, reddit /r/Sumcoin, ... but this will usually sort out itself
 
@@ -304,6 +304,6 @@ bitcoin.org (see below for bitcoin.org update instructions).
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/peercoin/peercoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/sumcoin/sumcoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

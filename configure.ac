@@ -12,16 +12,16 @@ define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2020)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Sumcoin]])
-AC_INIT([Sumcoin],[_PEERCOIN_VERSION_MAJOR._PEERCOIN_VERSION_MINOR._PEERCOIN_VERSION_REVISION],[https://github.com/peercoin/peercoin/issues],[peercoin],[https://peercoin.net/])
+AC_INIT([Sumcoin],[_PEERCOIN_VERSION_MAJOR._PEERCOIN_VERSION_MINOR._PEERCOIN_VERSION_REVISION],[https://github.com/sumcoin/sumcoin/issues],[sumcoin],[https://sumcoin.net/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
 BITCOIN_DAEMON_NAME=sumcoind
-BITCOIN_GUI_NAME=peercoin-qt
-BITCOIN_CLI_NAME=peercoin-cli
-BITCOIN_TX_NAME=peercoin-tx
+BITCOIN_GUI_NAME=sumcoin-qt
+BITCOIN_CLI_NAME=sumcoin-cli
+BITCOIN_TX_NAME=sumcoin-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])

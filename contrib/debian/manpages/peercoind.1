@@ -16,7 +16,7 @@ Peercoins can be sent easily through the Internet, without having to trust middl
 .SH OPTIONS
 .TP
 \fB\-conf=\fR<file>
-Specify configuration file (default: peercoin.conf)
+Specify configuration file (default: sumcoin.conf)
 .TP
 \fB\-pid=\fR<file>
 Specify pid file (default: sumcoind.pid)
@@ -34,7 +34,7 @@ Start minimized - only applicable to the GUI version
 Show splash screen on startup - only applicable to the GUI version
 .TP
 \fB\-datadir=\fR<dir>
-Specify data directory (default: $HOME/.peercoin)
+Specify data directory (default: $HOME/.sumcoin)
 .TP
 \fB\-dbcache=\fR<n>
 Set database cache size in megabytes (default: 25)
@@ -109,7 +109,7 @@ Username for JSON\-RPC connections
 Password for JSON\-RPC connections
 .TP
 \fB\-rpcport=\fR<port>
-Listen for JSON\-RPC connections on <port> (default: 9902)
+Listen for JSON\-RPC connections on <port> (default: 3332)
 .TP
 \fB\-rpcallowip=\fR<ip>
 Allow JSON\-RPC connections from specified IP address
@@ -154,7 +154,7 @@ This help message
 .TP
 \fBaddmultisigaddress 'nrequired' '["key","key",...]' ['account']\fR
 Add a nrequired-to-sign multisignature address to the wallet.
-Each key is a peercoin address or hex-encoded public key.
+Each key is a sumcoin address or hex-encoded public key.
 If ['account'] is specified, assign address to ['account'].
 .TP
 \fBbackupwallet 'destination'\fR
@@ -176,7 +176,7 @@ Returns the account associated with the given address.
 Sets the ['account'] associated with the given address. ['account'] may be omitted to remove an address from ['account'].
 .TP
 \fBgetaccountaddress 'account'\fR
-Returns a new peercoin address for 'account'.
+Returns a new sumcoin address for 'account'.
 .TP
 \fBgetaddressesbyaccount 'account'\fR
 Returns the list of addresses associated with the given 'account'.
@@ -242,7 +242,7 @@ Returns an object containing mining-related information.
 Returns a recent Ghash/second network mining estimate.
 .TP
 \fBgetnewaddress 'account'\fR
-Returns a new peercoin address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
+Returns a new sumcoin address for receiving payments. If 'account' is specified (recommended), it is added to the address book so payments received with the address will be credited to 'account'.
 .TP
 \fBgetreceivedbyaccount 'account' ['minconf=1']\fR
 Returns the total amount received by addresses associated with 'account' in transactions with at least ['minconf'] confirmations.
@@ -345,7 +345,7 @@ Minimum and default transaction fee per KB is 1 cent
 Sign a message with the private key of an address
 .TP
 \fBstop\fR
-Stops the peercoin server.
+Stops the sumcoin server.
 .TP
 \fBsubmitblock 'hex data' [optional-params-obj]\fR
 [optional-params-obj] parameter is currently ignored.
@@ -353,7 +353,7 @@ Attempts to submit new block to network.
 See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
 .TP
 \fBvalidateaddress 'peercoinaddress'\fR
-Checks that 'peercoinaddress' looks like a proper peercoin address. Returns an object containing:
+Checks that 'peercoinaddress' looks like a proper sumcoin address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.
@@ -366,7 +366,7 @@ Verify a signed message
 .TP
 
 .SH "SEE ALSO"
-peercoin.conf(5)
+sumcoin.conf(5)
 .SH AUTHOR
 This manual page was written by Zvonimir Mostarac <peerchemist@protonmail.ch> based on work by Micah Anderson <micah@debian.org> for the Debian system (but may be used by others). Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 3 or any later version published by the Free Software Foundation.
 

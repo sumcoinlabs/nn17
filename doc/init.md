@@ -13,7 +13,7 @@ can be found in the contrib/init folder.
 Service User
 ---------------------------------
 
-All three Linux startup configurations assume the existence of a "peercoin" user
+All three Linux startup configurations assume the existence of a "sumcoin" user
 and group.  They must be created before attempting to use these scripts.
 The OS X configuration assumes sumcoind will be set up for the current user.
 
@@ -44,7 +44,7 @@ This allows for running sumcoind without having to do any manual configuration.
 relative to the data directory. `wallet` *only* supports relative paths.
 
 For an example configuration file that describes the configuration settings,
-see `contrib/debian/examples/peercoin.conf`.
+see `contrib/debian/examples/sumcoin.conf`.
 
 Paths
 ---------------------------------
@@ -54,21 +54,21 @@ Paths
 All three configurations assume several paths that might need to be adjusted.
 
 Binary:              `/usr/bin/sumcoind`  
-Configuration file:  `/etc/peercoin/peercoin.conf`  
+Configuration file:  `/etc/sumcoin/sumcoin.conf`  
 Data directory:      `/var/lib/sumcoind`  
 PID file:            `/var/run/sumcoind/sumcoind.pid` (OpenRC and Upstart) or `/var/lib/sumcoind/sumcoind.pid` (systemd)  
 Lock file:           `/var/lock/subsys/sumcoind` (CentOS)  
 
 The configuration file, PID directory (if applicable) and data directory
-should all be owned by the peercoin user and group.  It is advised for security
+should all be owned by the sumcoin user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-peercoin user and group.  Access to peercoin-cli and other sumcoind rpc clients
+sumcoin user and group.  Access to sumcoin-cli and other sumcoind rpc clients
 can then be controlled by group membership.
 
 ### Mac OS X
 
 Binary:              `/usr/local/bin/sumcoind`  
-Configuration file:  `~/Library/Application Support/Sumcoin/peercoin.conf`  
+Configuration file:  `~/Library/Application Support/Sumcoin/sumcoin.conf`  
 Data directory:      `~/Library/Application Support/Sumcoin`  
 Lock file:           `~/Library/Application Support/Sumcoin/.lock`  
 
@@ -109,14 +109,14 @@ setting the PEERCOIND and FLAGS environment variables in the file
 
 ### Mac OS X
 
-Copy org.peercoin.sumcoind.plist into ~/Library/LaunchAgents. Load the launch agent by
-running `launchctl load ~/Library/LaunchAgents/org.peercoin.sumcoind.plist`.
+Copy org.sumcoin.sumcoind.plist into ~/Library/LaunchAgents. Load the launch agent by
+running `launchctl load ~/Library/LaunchAgents/org.sumcoin.sumcoind.plist`.
 
 This Launch Agent will cause sumcoind to start whenever the user logs in.
 
 NOTE: This approach is intended for those wanting to run sumcoind as the current user.
-You will need to modify org.peercoin.sumcoind.plist if you intend to use it as a
-Launch Daemon with a dedicated peercoin user.
+You will need to modify org.sumcoin.sumcoind.plist if you intend to use it as a
+Launch Daemon with a dedicated sumcoin user.
 
 Auto-respawn
 -----------------------------------

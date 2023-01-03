@@ -627,7 +627,7 @@ UniValue setnetworkactive(const JSONRPCRequest& request)
     return g_connman->GetNetworkActive();
 }
 
-// peercoin: send alert.  
+// sumcoin: send alert.  
 UniValue sendalert(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() < 6)
@@ -783,7 +783,7 @@ static const CRPCCommand commands[] =
     { "network",            "clearbanned",            &clearbanned,            {} },
     { "network",            "setnetworkactive",       &setnetworkactive,       {"state"} },
 
-    // peercoin:
+    // sumcoin:
 #ifdef ENABLE_CHECKPOINTS
     { "network",            "getcheckpoint",          &getcheckpoint,          {} },
     { "network",            "sendcheckpoint",         &sendcheckpoint,         {} },

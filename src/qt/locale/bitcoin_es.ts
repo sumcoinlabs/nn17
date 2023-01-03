@@ -418,8 +418,8 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>Solicitar pagos (generando códigos QR e identificadores URI "peercoin:")</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>Solicitar pagos (generando códigos QR e identificadores URI "sumcoin:")</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -430,8 +430,8 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
-        <translation>Abrir un identificador URI "peercoin:" o una petición de pago</translation>
+        <source>Open a sumcoin: URI or payment request</source>
+        <translation>Abrir un identificador URI "sumcoin:" o una petición de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -918,8 +918,8 @@
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the peercoin network, as detailed below.</source>
-        <translation>Las transacciones recientes aún no pueden ser visibles, y por lo tanto el saldo de su monedero podría ser incorrecto. Esta información será correcta cuando su monedero haya terminado de sincronizarse con la red de peercoin, como se detalla abajo.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the sumcoin network, as detailed below.</source>
+        <translation>Las transacciones recientes aún no pueden ser visibles, y por lo tanto el saldo de su monedero podría ser incorrecto. Esta información será correcta cuando su monedero haya terminado de sincronizarse con la red de sumcoin, como se detalla abajo.</translation>
     </message>
     <message>
         <source>Attempting to spend peercoins that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
@@ -1326,8 +1326,8 @@
         <translation>Fallo en la solicitud de pago</translation>
     </message>
     <message>
-        <source>Cannot start peercoin: click-to-pay handler</source>
-        <translation>No se puede iniciar peercoin: encargado click-para-pagar</translation>
+        <source>Cannot start sumcoin: click-to-pay handler</source>
+        <translation>No se puede iniciar sumcoin: encargado click-para-pagar</translation>
     </message>
     <message>
         <source>URI handling</source>
@@ -2105,7 +2105,7 @@
         <translation>Ocultar</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for peercoin transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for sumcoin transactions than the network can process.</source>
         <translation>Pagar solamente la comisión mínima es correcto, siempre y cuando haya menos volumen de transacciones que el espacio en los bloques. Pero tenga en cuenta que esto puede terminar en una transacción nunca confirmada, una vez que haya más demanda para transacciones Sumcoin que la red pueda procesar.</translation>
     </message>
     <message>
@@ -2368,8 +2368,8 @@
         <translation>Introduce una etiqueta para esta dirección para añadirla a la lista de direcciones utilizadas</translation>
     </message>
     <message>
-        <source>A message that was attached to the peercoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sumcoin network.</source>
-        <translation>Un mensaje que se adjuntó a la peercoin: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red Sumcoin.</translation>
+        <source>A message that was attached to the sumcoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Sumcoin network.</source>
+        <translation>Un mensaje que se adjuntó a la sumcoin: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red Sumcoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>

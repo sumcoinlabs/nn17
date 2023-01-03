@@ -418,7 +418,7 @@
         <translation>Трака са картицама</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
         <translation>Затражи плаћање (генерише QR кодове и пиркойн: URI-е)</translation>
     </message>
     <message>
@@ -430,7 +430,7 @@
         <translation>Прегледајте листу коришћених адреса и етикета за пријем уплата</translation>
     </message>
     <message>
-        <source>Open a peercoin: URI or payment request</source>
+        <source>Open a sumcoin: URI or payment request</source>
         <translation>Отворите пиркойн: URI или захтев за плаћање</translation>
     </message>
     <message>

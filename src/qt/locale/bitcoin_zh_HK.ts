@@ -382,8 +382,8 @@
         <translation>說明 &amp;H</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and peercoin: URIs)</source>
-        <translation>要求付款 (產生QR碼 peercoin: URIs)</translation>
+        <source>Request payments (generates QR codes and sumcoin: URIs)</source>
+        <translation>要求付款 (產生QR碼 sumcoin: URIs)</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>

@@ -2,20 +2,20 @@
 Sumcoin Official Development Repo
 ==================================
 
-[![Build Status](https://travis-ci.org/peercoin/peercoin.svg?branch=master)](https://travis-ci.org/peercoin/peercoin)
+[![Build Status](https://travis-ci.org/sumcoin/sumcoin.svg?branch=master)](https://travis-ci.org/sumcoin/sumcoin)
 
 ### What is Sumcoin?
-[Sumcoin](https://peercoin.net) (abbreviated PPC), previously known as PPCoin, is the first [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design introducing [proof-of-stake consensus](https://peercoin.net/resources#whitepaper) as a security model, with a combined [proof-of-stake](https://peercoin.net/resources#whitepaper)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. Sumcoin is based on [Bitcoin](https://bitcoin.org), while introducing many important innovations to cryptocurrency field including new security model, energy efficiency, better minting model and more adaptive response to rapid change in network computation power.
+[Sumcoin](https://sumcoin.net) (abbreviated PPC), previously known as PPCoin, is the first [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design introducing [proof-of-stake consensus](https://sumcoin.net/resources#whitepaper) as a security model, with a combined [proof-of-stake](https://sumcoin.net/resources#whitepaper)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. Sumcoin is based on [Bitcoin](https://bitcoin.org), while introducing many important innovations to cryptocurrency field including new security model, energy efficiency, better minting model and more adaptive response to rapid change in network computation power.
 
 ### Sumcoin Resources
 * Client and Source:
-[Client Binaries](https://peercoin.net/wallet),
-[Source Code](https://github.com/peercoin/peercoin)
-* Documentation: [Sumcoin Whitepaper](https://peercoin.net/resources#whitepaper),
-[Sumcoin Docs](https://docs.peercoin.net)
+[Client Binaries](https://sumcoin.net/wallet),
+[Source Code](https://github.com/sumcoin/sumcoin)
+* Documentation: [Sumcoin Whitepaper](https://sumcoin.net/resources#whitepaper),
+[Sumcoin Docs](https://docs.sumcoin.net)
 * Help: 
-[Forum](https://talk.peercoin.net),
-[Intro & Important Links](https://talk.peercoin.net/t/what-is-peercoin-intro-important-links/2889)
+[Forum](https://talk.sumcoin.net),
+[Intro & Important Links](https://talk.sumcoin.net/t/what-is-sumcoin-intro-important-links/2889)
 
 Testing
 -------
@@ -45,10 +45,10 @@ than the developer who wrote the code.
 
 * Developers work in their own forks, then submit pull requests when they think their feature or bug fix is ready.
 * If it is a simple/trivial/non-controversial change, then one of the development team members simply pulls it.
-* If it is a more complicated or potentially controversial change, then the change may be discussed in the pull request, or the requester may be asked to start a discussion in the [Sumcoin Forum](https://talk.peercoin.net) for a broader community discussion. 
+* If it is a more complicated or potentially controversial change, then the change may be discussed in the pull request, or the requester may be asked to start a discussion in the [Sumcoin Forum](https://talk.sumcoin.net) for a broader community discussion. 
 * The patch will be accepted if there is broad consensus that it is a good thing. Developers should expect to rework and resubmit patches if they don't match the project's coding conventions (see coding.txt) or are controversial.
 * From time to time a pull request will become outdated. If this occurs, and the pull is no longer automatically mergeable; a comment on the pull will be used to issue a warning of closure.  Pull requests closed in this manner will have their corresponding issue labeled 'stagnant'.
-* For development ideas and help see [here](https://talk.peercoin.net/c/protocol).
+* For development ideas and help see [here](https://talk.sumcoin.net/c/protocol).
 
 ## Branches:
 
