@@ -34,6 +34,36 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
+
+    // CBigNum bnTarget;
+    // bnTarget.SetCompact(genesis.nBits);
+
+// Generate a genesis block
+// Find one quicker if you start from a higher setting and launch a new process for each
+    // (ie)
+    // genesis.nNonce = 0;
+    // make
+    // ./sumcoind
+    // genesis.nNonce = 1000000000;
+    // make
+    // ./sumcoind
+    // .......
+
+    // while (genesis.GetHash() > bnTarget.getuint256())
+    // {
+    //     if (genesis.nNonce % 1048576 == 0)
+    //         printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
+    //                 genesis.GetHash().ToString().c_str());
+    //     genesis.nNonce++;
+    // }
+    // uint256 hash = genesis.GetHash();
+    // printf("%s\n", hash.ToString().c_str());
+    // printf("%s\n", genesis.ToString().c_str());
+    // printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+    // genesis.print();
+
+    // assert(false);
+
     return genesis;
 }
 
