@@ -1,8 +1,8 @@
-// Copyright (c) 2012-2022 The Sumcoin developers
+// Copyright (c) 2012-2020 The Peercoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef SUMCOIN_QT_MINTINGVIEW_H
-#define SUMCOIN_QT_MINTINGVIEW_H
+#ifndef PEERCOIN_QT_MINTINGVIEW_H
+#define PEERCOIN_QT_MINTINGVIEW_H
 
 #include <QWidget>
 #include <QComboBox>
@@ -50,4 +50,4 @@ public Q_SLOTS:
     void chooseMintingInterval(int idx);
 };
 
-#endif // SUMCOIN_QT_MINTINGVIEW_H
+#endif // PEERCOIN_QT_MINTINGVIEW_H

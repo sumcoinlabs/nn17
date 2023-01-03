@@ -1,8 +1,10 @@
-// Copyright (c) 2015-2019 The Bitcoin Core developers
+// Copyright (c) 2015-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <qt/platformstyle.h>
+
+#include <qt/guiconstants.h>
 
 #include <QApplication>
 #include <QColor>
@@ -44,7 +46,7 @@ void MakeSingleColorImage(QImage& img, const QColor& colorbase)
 QIcon ColorizeIcon(const QIcon& ico, const QColor& colorbase)
 {
     QIcon new_ico;
-    for (const QSize& sz : ico.availableSizes())
+    for (const QSize sz : ico.availableSizes())
     {
         QImage img(ico.pixmap(sz).toImage());
         MakeSingleColorImage(img, colorbase);
@@ -64,7 +66,9 @@ QIcon ColorizeIcon(const QString& filename, const QColor& colorbase)
 {
     return QIcon(QPixmap::fromImage(ColorizeImage(filename, colorbase)));
 }
+
 }
+
 
 PlatformStyle::PlatformStyle(const QString &_name, bool _imagesOnButtons, bool _colorizeIcons, bool _useExtraSpacing):
     name(_name),
@@ -112,6 +116,13 @@ QIcon PlatformStyle::SingleColorIcon(const QIcon& icon) const
     return ColorizeIcon(icon, SingleColor());
 }
 
+QIcon PlatformStyle::TextColorIcon(const QString& filename) const
+{
+    if (!colorizeIcons)
+        return QIcon(QPixmap::fromImage(QImage(filename)));
+    return ColorizeIcon(filename, TextColor());
+}
+
 QIcon PlatformStyle::TextColorIcon(const QIcon& icon) const
 {
     if (!colorizeIcons)
@@ -132,6 +143,6 @@ const PlatformStyle *PlatformStyle::instantiate(const QString &platformId)
                     platform_styles[x].useExtraSpacing);
         }
     }
-    return nullptr;
+    return 0;
 }
 

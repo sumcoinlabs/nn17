@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2019 The Bitcoin Core developers
+// Copyright (c) 2011-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,6 +9,7 @@
 
 #include <QStackedWidget>
 
+class BitcoinGUI;
 class ClientModel;
 class OverviewPage;
 class PlatformStyle;
@@ -16,6 +17,7 @@ class ReceiveCoinsDialog;
 class SendCoinsDialog;
 class SendCoinsRecipient;
 class TransactionView;
+class MultisigDialog;
 class MintingView;
 class WalletModel;
 class AddressBookPage;
@@ -39,11 +41,11 @@ public:
     explicit WalletView(const PlatformStyle *platformStyle, QWidget *parent);
     ~WalletView();
 
+    void setBitcoinGUI(BitcoinGUI *gui);
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
-    WalletModel *getWalletModel() { return walletModel; }
     /** Set the wallet model.
         The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
@@ -61,6 +63,7 @@ private:
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
     QWidget *mintingPage;
+    MultisigDialog *multisigPage;
     ReceiveCoinsDialog *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     AddressBookPage *usedSendingAddressesPage;
@@ -69,7 +72,7 @@ private:
     TransactionView *transactionView;
     MintingView *mintingView;
 
-    QProgressDialog* progressDialog{nullptr};
+    QProgressDialog *progressDialog;
     const PlatformStyle *platformStyle;
 
 public Q_SLOTS:
@@ -77,6 +80,8 @@ public Q_SLOTS:
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+    /** Switch to multisig page */
+    void gotoMultisigPage();
     /** Switch to minting page */
     void gotoMintingPage();
     /** Switch to receive coins page */
@@ -120,16 +125,16 @@ public Q_SLOTS:
     void requestedSyncWarningInfo();
 
 Q_SIGNALS:
-    void transactionClicked();
-    void coinsSent();
+    /** Signal that we want to show the main window */
+    void showNormalIfMinimized();
     /**  Fired when a message should be reported to the user */
     void message(const QString &title, const QString &message, unsigned int style);
     /** Encryption status of wallet changed */
-    void encryptionStatusChanged();
+    void encryptionStatusChanged(int status);
     /** HD-Enabled status of wallet changed (only possible during startup) */
-    void hdEnabledStatusChanged();
+    void hdEnabledStatusChanged(int hdEnabled);
     /** Notify that a new transaction appeared */
-    void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label, const QString& walletName);
+    void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address, const QString& label);
     /** Notify that the out of sync warning icon has been pressed */
     void outOfSyncWarningClicked();
 };

@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The Bitcoin Core developers
+// Copyright (c) 2009-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,9 +19,8 @@ static const CAmount MIN_TX_FEE_PREV7 = CENT;
 static const CAmount MIN_TX_FEE = CENT / 10;
 static const CAmount PERKB_TX_FEE = CENT;
 static const CAmount MIN_TXOUT_AMOUNT = CENT;
-static const CAmount MAX_MINT_PROOF_OF_WORK = 200000; // 200,000 for the initial PoW;
-static const CAmount MAX_MINT_PROOF_OF_WORK_V10 = 200000; // 200,000 for the initial PoW;
-static const std::string CURRENCY_UNIT = "SUM";
+static const CAmount MAX_MINT_PROOF_OF_WORK = 9999 * COIN;
+static const std::string CURRENCY_UNIT = "BTC";
 
 /** No amount larger than this (in satoshi) is valid.
  *
@@ -32,9 +31,7 @@ static const std::string CURRENCY_UNIT = "SUM";
  * critical; in unusual circumstances like a(nother) overflow bug that allowed
  * for the creation of coins out of thin air modification could lead to a fork.
  * */
-static const CAmount MAX_MONEY = 200000000 * COIN;
-static const CAmount PROOF_OF_WORK_BLOCKS = 1000; // Block height of the last proof of work block
-
+static const CAmount MAX_MONEY = 21000000 * COIN;
 inline bool MoneyRange(const CAmount& nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
 #endif //  BITCOIN_AMOUNT_H

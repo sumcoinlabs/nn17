@@ -1,13 +1,13 @@
-// Copyright (c) 2012-2022 The Sumcoin developers
+// Copyright (c) 2012-2020 The Peercoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef SUMCOIN_KERNEL_H
-#define SUMCOIN_KERNEL_H
+#ifndef PEERCOIN_KERNEL_H
+#define PEERCOIN_KERNEL_H
 
 #include <primitives/transaction.h> // CTransaction(Ref)
 
 class CBlockIndex;
-class BlockValidationState;
+class CValidationState;
 class CBlockHeader;
 class CBlock;
 
@@ -33,10 +33,6 @@ bool IsProtocolV06(const CBlockIndex *pindexPrev);
 bool IsProtocolV07(unsigned int nTimeTx);
 // Whether a given block is subject to new BIPs from bitcoin 0.16.x
 bool IsBTC16BIPsEnabled(uint32_t nTimeTx);
-// Whether a given timestamp is subject to new v0.9 protocol
-bool IsProtocolV09(unsigned int nTimeTx);
-// Whether a given timestamp is subject to new v10 protocol
-bool IsProtocolV10(unsigned int nTimeTx);
 
 // Compute the hash modifier for proof-of-stake
 bool ComputeNextStakeModifier(const CBlockIndex* pindexCurrent, uint64_t& nStakeModifier, bool& fGeneratedStakeModifier);
@@ -47,7 +43,7 @@ bool CheckStakeKernelHash(unsigned int nBits, CBlockIndex* pindexPrev, const CBl
 
 // Check kernel hash target and coinstake signature
 // Sets hashProofOfStake on success return
-bool CheckProofOfStake(BlockValidationState &state, CBlockIndex* pindexPrev, const CTransactionRef &tx, unsigned int nBits, uint256& hashProofOfStake, unsigned int nTimeTx);
+bool CheckProofOfStake(CValidationState &state, CBlockIndex* pindexPrev, const CTransactionRef &tx, unsigned int nBits, uint256& hashProofOfStake);
 
 // Check whether the coinstake timestamp meets protocol
 bool CheckCoinStakeTimestamp(int64_t nTimeBlock, int64_t nTimeTx);
@@ -60,7 +56,7 @@ bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierCheck
 
 bool IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired, unsigned int nToCheck);
 
-// sumcoin: entropy bit for stake modifier if chosen by modifier
+// peercoin: entropy bit for stake modifier if chosen by modifier
 unsigned int GetStakeEntropyBit(const CBlock& block);
 
-#endif // SUMCOIN_KERNEL_H
+#endif // PEERCOIN_KERNEL_H

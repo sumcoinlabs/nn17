@@ -3,7 +3,7 @@
 <plist version="0.9">
 <dict>
   <key>LSMinimumSystemVersion</key>
-  <string>10.12.0</string>
+  <string>10.8.0</string>
 
   <key>LSArchitecturePriority</key>
   <array>
@@ -11,34 +11,34 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>sumcoin.icns</string>
+  <string>peercoin.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
 
-  <key>NSHumanReadableCopyright</key>
-  <string>@SUMCOIN_VERSION_MAJOR@.@SUMCOIN_VERSION_MINOR@.@SUMCOIN_VERSION_REVISION@.@SUMCOIN_VERSION_BUILD@, Copyright © 2011-@COPYRIGHT_YEAR@ @COPYRIGHT_HOLDERS_FINAL@</string>
+  <key>CFBundleGetInfoString</key>
+  <string>@PEERCOIN_VERSION_MAJOR@.@PEERCOIN_VERSION_MINOR@.@PEERCOIN_VERSION_REVISION@, Copyright © 2011-@COPYRIGHT_YEAR@ @COPYRIGHT_HOLDERS_FINAL@</string>
 
   <key>CFBundleShortVersionString</key>
-  <string>@SUMCOIN_VERSION_MAJOR@.@SUMCOIN_VERSION_MINOR@.@SUMCOIN_VERSION_REVISION@</string>
+  <string>@PEERCOIN_VERSION_MAJOR@.@PEERCOIN_VERSION_MINOR@.@PEERCOIN_VERSION_REVISION@</string>
 
   <key>CFBundleVersion</key>
-  <string>@SUMCOIN_VERSION_MAJOR@.@SUMCOIN_VERSION_MINOR@.@SUMCOIN_VERSION_REVISION@</string>
+  <string>@PEERCOIN_VERSION_MAJOR@.@PEERCOIN_VERSION_MINOR@.@PEERCOIN_VERSION_REVISION@</string>
 
   <key>CFBundleSignature</key>
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Sumcoin-Qt</string>
-
+  <string>Peercoin-Qt</string>
+  
   <key>CFBundleName</key>
-  <string>Sumcoin-Qt</string>
+  <string>Peercoin-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.sumcoin.Sumcoin-Qt</string>
+  <string>org.peercoin.Peercoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,11 +46,48 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.sumcoin.SumcoinPayment</string>
+      <string>org.peercoin.PeercoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>sumcoin</string>
+        <string>peercoin</string>
       </array>
+    </dict>
+  </array>
+
+  <key>UTExportedTypeDeclarations</key>
+  <array>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>org.peercoin.paymentrequest</string>
+      <key>UTTypeDescription</key>
+      <string>Peercoin payment request</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.mime-type</key>
+        <string>application/x-peercoin-payment-request</string>
+        <key>public.filename-extension</key>
+        <array>
+          <string>peercoinpaymentrequest</string>
+        </array>
+      </dict>
+    </dict>
+  </array>
+
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>org.peercoin.paymentrequest</string>
+      </array>
+      <key>LSHandlerRank</key>
+      <string>Owner</string>
     </dict>
   </array>
 
@@ -60,9 +97,9 @@
   <key>NSHighResolutionCapable</key>
     <string>True</string>
 
-  <key>NSRequiresAquaSystemAppearance</key>
+  <key>LSAppNapIsDisabled</key>
     <string>True</string>
-
+  
   <key>LSApplicationCategoryType</key>
     <string>public.app-category.finance</string>
 </dict>

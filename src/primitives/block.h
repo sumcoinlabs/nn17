@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The Bitcoin Core developers
+// Copyright (c) 2009-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,6 @@
 #include <primitives/transaction.h>
 #include <serialize.h>
 #include <uint256.h>
-#include <util/strencodings.h>
 
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
@@ -29,9 +28,9 @@ public:
     uint32_t nBits;
     uint32_t nNonce;
 
-    // sumcoin: A copy from CBlockIndex.nFlags from other clients. We need this information because we are using headers-first syncronization.
-    uint32_t nFlags;
-    // sumcoin: Used in CheckProofOfStake().
+    // peercoin: A copy from CBlockIndex.nFlags from other clients. We need this information because we are using headers-first syncronization.
+    int32_t nFlags;
+    // peercoin: Used in CheckProofOfStake().
     static const int32_t NORMAL_SERIALIZE_SIZE=80;
     static const int32_t CURRENT_VERSION=3;
 
@@ -51,7 +50,7 @@ public:
         READWRITE(nBits);
         READWRITE(nNonce);
 
-        // sumcoin: do not serialize nFlags when computing hash
+        // peercoin: do not serialize nFlags when computing hash
         if (!(s.GetType() & SER_GETHASH) && s.GetType() & SER_POSMARKER)
             READWRITE(nFlags);
     }
@@ -87,7 +86,7 @@ public:
     // network and disk
     std::vector<CTransactionRef> vtx;
 
-    // sumcoin: block signature - signed by coin base txout[0]'s owner
+    // peercoin: block signature - signed by coin base txout[0]'s owner
     std::vector<unsigned char> vchBlockSig;
 
     // memory only
@@ -101,14 +100,14 @@ public:
     CBlock(const CBlockHeader &header)
     {
         SetNull();
-        *(static_cast<CBlockHeader*>(this)) = header;
+        *((CBlockHeader*)this) = header;
     }
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
     inline void SerializationOp(Stream& s, Operation ser_action) {
-        READWRITEAS(CBlockHeader, *this);
+        READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
         READWRITE(vchBlockSig);
     }
@@ -134,7 +133,7 @@ public:
         return block;
     }
 
-    // sumcoin: two types of block: proof-of-work or proof-of-stake
+    // peercoin: two types of block: proof-of-work or proof-of-stake
     bool IsProofOfStake() const
     {
         return (vtx.size() > 1 && vtx[1]->IsCoinStake());
@@ -150,7 +149,7 @@ public:
         return IsProofOfStake() ? std::make_pair(vtx[1]->vin[0].prevout, vtx[1]->nTime) : std::make_pair(COutPoint(), (unsigned int)0);
     }
 
-    // sumcoin: get max transaction timestamp
+    // peercoin: get max transaction timestamp
     int64_t GetMaxTransactionTime() const
     {
         int64_t maxTransactionTime = 0;
@@ -159,30 +158,7 @@ public:
         return maxTransactionTime;
     }
 
-    mutable std::vector<uint256> vMerkleTree;
-
-    void print() const
-    {
-        printf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%" "zu"", vchBlockSig=%s)\n",
-            GetHash().ToString().c_str(),
-            nVersion,
-            hashPrevBlock.ToString().c_str(),
-            hashMerkleRoot.ToString().c_str(),
-            nTime, nBits, nNonce,
-            vtx.size(),
-            HexStr(vchBlockSig.begin(), vchBlockSig.end()).c_str());
-        for (unsigned int i = 0; i < vtx.size(); i++)
-        {
-            printf("  ");
-            vtx[i]->print();
-        }
-        printf("  vMerkleTree: ");
-        for (unsigned int i = 0; i < vMerkleTree.size(); i++)
-            printf("%s ", vMerkleTree[i].ToString().c_str());
-        printf("\n");
-    }
-
-    unsigned int GetStakeEntropyBit() const; // sumcoin: entropy bit for stake modifier if chosen by modifier
+    unsigned int GetStakeEntropyBit() const; // peercoin: entropy bit for stake modifier if chosen by modifier
 
     std::string ToString() const;
 };

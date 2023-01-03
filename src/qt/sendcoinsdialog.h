@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2019 The Bitcoin Core developers
+// Copyright (c) 2011-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,6 @@
 #include <QString>
 #include <QTimer>
 
-class CCoinControl;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsEntry;
@@ -32,7 +31,7 @@ class SendCoinsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *parent = nullptr);
+    explicit SendCoinsDialog(const PlatformStyle *platformStyle, QWidget *parent = 0);
     ~SendCoinsDialog();
 
     void setClientModel(ClientModel *clientModel);
@@ -52,16 +51,13 @@ public Q_SLOTS:
     void accept();
     SendCoinsEntry *addEntry();
     void updateTabsAndLabels();
-    void setBalance(const interfaces::WalletBalances& balances);
-
-Q_SIGNALS:
-    void coinsSent(const uint256& txid);
+    void setBalance(const CAmount& balance, const CAmount& stale, const CAmount& unconfirmedBalance, const CAmount& immatureBalance,
+                    const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
 
 private:
     Ui::SendCoinsDialog *ui;
     ClientModel *clientModel;
     WalletModel *model;
-    std::unique_ptr<CCoinControl> m_coin_control;
     bool fNewRecipientAllowed;
     bool fFeeMinimized;
     const PlatformStyle *platformStyle;
@@ -95,6 +91,7 @@ private Q_SLOTS:
     void coinControlClipboardLowOutput();
     void coinControlClipboardChange();
     //void updateFeeSectionControls();
+    //void updateMinFeeLabel();
     //void updateSmartFeeLabel();
 
 Q_SIGNALS:
@@ -110,7 +107,7 @@ class SendConfirmationDialog : public QMessageBox
     Q_OBJECT
 
 public:
-    SendConfirmationDialog(const QString& title, const QString& text, const QString& informative_text = "", const QString& detailed_text = "", int secDelay = SEND_CONFIRM_DELAY, const QString& confirmText = "Send", QWidget* parent = nullptr);
+    SendConfirmationDialog(const QString &title, const QString &text, int secDelay = SEND_CONFIRM_DELAY, QWidget *parent = 0);
     int exec();
 
 private Q_SLOTS:
@@ -121,7 +118,6 @@ private:
     QAbstractButton *yesButton;
     QTimer countDownTimer;
     int secDelay;
-    QString confirmButtonText;
 };
 
 #endif // BITCOIN_QT_SENDCOINSDIALOG_H
