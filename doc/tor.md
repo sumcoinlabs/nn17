@@ -1,4 +1,4 @@
-TOR SUPPORT IN PEERCOIN
+TOR SUPPORT IN SUMCOIN
 ======================
 
 It is possible to run Sumcoin as a Tor hidden service, and connect to such services.
