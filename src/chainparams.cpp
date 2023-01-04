@@ -40,8 +40,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis); //
 
-    // CBigNum bnTarget;
-    // bnTarget.SetCompact(genesis.nBits);
+     CBigNum bnTarget;
+     bnTarget.SetCompact(genesis.nBits);
 
     // Generate a genesis block
     // Find one quicker if you start from a higher setting and launch a new process for each
@@ -54,20 +54,20 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     // ./sumcoind
     // .......
 
-    // while (genesis.GetHash() > bnTarget.getuint256())
-    // {
-    //     if (genesis.nNonce % 1048576 == 0)
-    //         printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
-    //                 genesis.GetHash().ToString().c_str());
-    //     genesis.nNonce++;
-    // }
-    // uint256 hash = genesis.GetHash();
-    // printf("%s\n", hash.ToString().c_str());
-    // printf("%s\n", genesis.ToString().c_str());
-    // printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
-    // genesis.print();
+     while (genesis.GetHash() > bnTarget.getuint256())
+     {
+         if (genesis.nNonce % 1048576 == 0)
+             printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
+                     genesis.GetHash().ToString().c_str());
+         genesis.nNonce++;
+     }
+     uint256 hash = genesis.GetHash();
+     printf("%s\n", hash.ToString().c_str());
+     printf("%s\n", genesis.ToString().c_str());
+     printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+     genesis.print();
 
-    // assert(false);
+     assert(true);
 
     return genesis;
 }
@@ -85,7 +85,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTimeTx, uint32_t nTimeBlock, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Fighting flares on outskirts of Tripoli";
+    const char* pszTimestamp = "We Forgot What Dr King Believed In NY Times";
     const CScript genesisOutputScript = CScript();
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTimeTx, nTimeBlock, nNonce, nBits, nVersion, genesisReward);
 }
@@ -105,11 +105,11 @@ public:
     CMainParams() {
         strNetworkID = CBaseChainParams::MAIN;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");
+        consensus.BIP34Hash = uint256S("00");
         consensus.powLimit =            uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //24
         consensus.bnInitialHashTarget = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //32
         consensus.nTargetTimespan = 7 * 24 * 60 * 60;  // one week
-        consensus.nStakeTargetSpacing = 1 * 60; // 10-minute block spacing
+        consensus.nStakeTargetSpacing = 1 * 60; // 1-minute block spacing
         consensus.nTargetSpacingWorkMax = 12 * consensus.nStakeTargetSpacing; // 2-hour
         consensus.nPowTargetSpacing = consensus.nStakeTargetSpacing;
         consensus.nStakeMinAge = 60 * 60 * 24 * 1; // minimum age for coin age
@@ -126,14 +126,14 @@ public:
         consensus.nMinimumChainWork =   uint256S("0x0000000000000000000000000000000000000000000000000000000000000000"); // 1000
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid =  uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");  // 0
+        consensus.defaultAssumeValid =  uint256S("0x");  // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xf1;
+        pchMessageStart[0] = 0xa1;
         pchMessageStart[1] = 0xe6;
         pchMessageStart[2] = 0xf9;
         pchMessageStart[3] = 0xa2;
@@ -143,10 +143,10 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 0;
 
-        genesis = CreateGenesisBlock(1554579000, 1554579300, 4097542u, 0x1e00ffff, 1, 0);
+        genesis = CreateGenesisBlock(1522599600, 1522599900, 4097542u, 0x1e00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5"));
-        assert(genesis.hashMerkleRoot == uint256S("0xd87e2823fecc64d04b2475a48d8ae4dba9d0e46addaaaa9150b6a666e555f3b4"));
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -155,11 +155,12 @@ public:
         // release ASAP to avoid it where possible.
         vSeeds.empty();
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'P' : Hex 3F
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63);  // sumcoin: addresses begin with 'S' : Hex 3F
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,125); // hex 7D
+      // Segwit  base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,200); //
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,187); // Hex bb
-        base58Prefixes[EXT_PUBLIC_KEY] = {0xF5, 0x88, 0xB2, 0x1F};
-        base58Prefixes[EXT_SECRET_KEY] = {0xF5, 0x88, 0xAD, 0xE5};
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB4, 0x2C};
+        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAB, 0xE7};
 
         // human readable prefix to bench32 address
         bech32_hrp = "sum";
@@ -174,7 +175,7 @@ public:
 
         checkpointData = {
             {
-                {0,         uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5")},
+                {0,         uint256S("0x")},
 
 
                 //{100,       uint256S("0x00000099242f8494ab53d675e5332a62bbd07c409ad0eb949142dd1c735552f3")},
