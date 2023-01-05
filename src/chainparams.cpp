@@ -75,8 +75,8 @@ public:
         consensus.BIP16Height = 0;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");
-        consensus.powLimit =            uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 32;
-        consensus.bnInitialHashTarget = uint256S("0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 40;
+        consensus.powLimit =            uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //24
+        consensus.bnInitialHashTarget = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //32
 
         consensus.nTargetTimespan = 7 * 24 * 60 * 60;  // one week
         consensus.nStakeTargetSpacing = 1 * 60; // 1-minute block spacing
