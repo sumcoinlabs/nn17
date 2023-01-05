@@ -904,35 +904,34 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 int64_t GetProofOfWorkReward(unsigned int nBits, uint32_t nTime)
 {
-	return MAX_MINT_PROOF_OF_WORK;
-    // CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
-    // CBigNum bnTarget;
-    // bnTarget.SetCompact(nBits);
-    // CBigNum bnTargetLimit(Params().GetConsensus().powLimit);
-    // bnTargetLimit.SetCompact(bnTargetLimit.GetCompact());
+    CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
+    CBigNum bnTarget;
+    bnTarget.SetCompact(nBits);
+    CBigNum bnTargetLimit(Params().GetConsensus().powLimit);
+    bnTargetLimit.SetCompact(bnTargetLimit.GetCompact());
 
-    // // sumcoin: subsidy is cut in half every 16x multiply of difficulty
-    // // A reasonably continuous curve is used to avoid shock to market
-    // // (nSubsidyLimit / nSubsidy) ** 4 == bnProofOfWorkLimit / bnTarget
-    // CBigNum bnLowerBound = CENT;
-    // CBigNum bnUpperBound = bnSubsidyLimit;
-    // while (bnLowerBound + CENT <= bnUpperBound)
-    // {
-    //     CBigNum bnMidValue = (bnLowerBound + bnUpperBound) / 2;
-    //     if (gArgs.GetBoolArg("-printcreation", false))
-    //         LogPrintf("%s: lower=%lld upper=%lld mid=%lld\n", __func__, bnLowerBound.getuint64(), bnUpperBound.getuint64(), bnMidValue.getuint64());
-    //     if (bnMidValue * bnMidValue * bnMidValue * bnMidValue * bnTargetLimit > bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnTarget)
-    //         bnUpperBound = bnMidValue;
-    //     else
-    //         bnLowerBound = bnMidValue;
-    // }
+    // peercoin: subsidy is cut in half every 16x multiply of difficulty
+    // A reasonably continuous curve is used to avoid shock to market
+    // (nSubsidyLimit / nSubsidy) ** 4 == bnProofOfWorkLimit / bnTarget
+    CBigNum bnLowerBound = CENT;
+    CBigNum bnUpperBound = bnSubsidyLimit;
+    while (bnLowerBound + CENT <= bnUpperBound)
+    {
+        CBigNum bnMidValue = (bnLowerBound + bnUpperBound) / 2;
+        if (gArgs.GetBoolArg("-printcreation", false))
+            LogPrintf("%s: lower=%lld upper=%lld mid=%lld\n", __func__, bnLowerBound.getuint64(), bnUpperBound.getuint64(), bnMidValue.getuint64());
+        if (bnMidValue * bnMidValue * bnMidValue * bnMidValue * bnTargetLimit > bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnSubsidyLimit * bnTarget)
+            bnUpperBound = bnMidValue;
+        else
+            bnLowerBound = bnMidValue;
+    }
 
-	// int64_t nSubsidy = bnUpperBound.getuint64();
-    // nSubsidy = (nSubsidy / CENT) * CENT;
-    //if (gArgs.GetBoolArg("-printcreation", false))
-    //    LogPrintf("%s: create=%s nBits=0x%08x nSubsidy=%lld\n", __func__, FormatMoney(nSubsidy), nBits, nSubsidy);
+    int64_t nSubsidy = bnUpperBound.getuint64();
+    nSubsidy = (nSubsidy / CENT) * CENT;
+    if (gArgs.GetBoolArg("-printcreation", false))
+        LogPrintf("%s: create=%s nBits=0x%08x nSubsidy=%lld\n", __func__, FormatMoney(nSubsidy), nBits, nSubsidy);
 
-    //return std::min(nSubsidy, MAX_MINT_PROOF_OF_WORK);
+    return std::min(nSubsidy, MAX_MINT_PROOF_OF_WORK);
 }
 
 // sumcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
