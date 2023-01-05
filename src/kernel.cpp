@@ -44,14 +44,14 @@ const uint32_t nBTC16BIPsTestSwitchTime = 1680386501; // Tue 09 Apr 12:00:00 UTC
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     boost::assign::map_list_of
-    ( 0, 0x00u )
+    ( 0, 0x0e00670bu )
 //    ( 19080, 0xad4e4d29u )
 
     ;
 
 static std::map<int, unsigned int> mapStakeModifierTestnetCheckpoints =
     boost::assign::map_list_of
-    ( 0, 0x0e00670bu )
+   // ( 0, 0x0e00670bu )
 //    ( 19080, 0x3711dc3au )
 
     ;
