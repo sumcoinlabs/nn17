@@ -35,34 +35,6 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
 
-    // CBigNum bnTarget;
-    // bnTarget.SetCompact(genesis.nBits);
-
-// Generate a genesis block
-// Find one quicker if you start from a higher setting and launch a new process for each
-    // (ie)
-    // genesis.nNonce = 0;
-    // make
-    // ./sumcoind
-    // genesis.nNonce = 1000000000;
-    // make
-    // ./sumcoind
-    // .......
-
-    // while (genesis.GetHash() > bnTarget.getuint256())
-    // {
-    //     if (genesis.nNonce % 1048576 == 0)
-    //         printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
-    //                 genesis.GetHash().ToString().c_str());
-    //     genesis.nNonce++;
-    // }
-    // uint256 hash = genesis.GetHash();
-    // printf("%s\n", hash.ToString().c_str());
-    // printf("%s\n", genesis.ToString().c_str());
-    // printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
-    // genesis.print();
-
-    // assert(false);
 
     return genesis;
 }
@@ -80,7 +52,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTimeTx, uint32_t nTimeBlock, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "We Forgot What Dr King Believed In NY Times";
+    const char* pszTimestamp = "Fighting flares on outskirts of Tripoli";
     const CScript genesisOutputScript = CScript();
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTimeTx, nTimeBlock, nNonce, nBits, nVersion, genesisReward);
 }
@@ -102,7 +74,7 @@ public:
         strNetworkID = "main";
         consensus.BIP16Height = 0;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("000000000000000237f50af4cfe8924e8693abc5bd8ae5abb95bc6d230f5953f");
+        consensus.BIP34Hash = uint256S("000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");
         consensus.powLimit =            uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 32;
         consensus.bnInitialHashTarget = uint256S("0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~arith_uint256(0) >> 40;
 
@@ -111,7 +83,7 @@ public:
         consensus.nTargetSpacingWorkMax = 12 * consensus.nStakeTargetSpacing; // 2-hour
         consensus.nPowTargetSpacing = consensus.nStakeTargetSpacing;
         consensus.nStakeMinAge = 60 * 60 * 24 * 1; // minimum age for coin age
-        consensus.nStakeMaxAge = 60 * 60 * 24 * 90;
+        consensus.nStakeMaxAge = 60 * 60 * 24 * 90; // 30 days      //60 * 60 * 24 * 90; // minimum age for coin age
         consensus.nModifierInterval = 6 * 60; // Modifier interval: time to elapse before new modifier is computed
         consensus.nCoinbaseMaturity = 500;
         // consensus.SegwitHeight = 1001;
@@ -123,10 +95,10 @@ public:
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork =  uint256S("0x0000000000000000000000000000000000000000000000000000000000000000"); // 1000
+        consensus.nMinimumChainWork =  uint256S("0x0000000000000000000000000000000000000000000000000000000000000000"); // 1
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid =  uint256S("0x");  // 0
+        consensus.defaultAssumeValid =  uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");  // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -141,10 +113,10 @@ public:
         nDefaultPort = 3333;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1345083810, 1345084287, 2179302059u, 0x1d00ffff, 1, 0);
+        genesis = CreateGenesisBlock(1554579000, 1554579300, 4097542u, 0x1e00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5"));
+        assert(genesis.hashMerkleRoot == uint256S("0xd87e2823fecc64d04b2475a48d8ae4dba9d0e46addaaaa9150b6a666e555f3b4"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -174,17 +146,17 @@ public:
 
         checkpointData = {
             {
-                {     0, uint256S("0x0000000032fe677166d54963b62a4677d8957e87c508eaa4fd7eb1c880cd27e3")},
+                {     0, uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5")},
 
             }
         };
 
         chainTxData = ChainTxData{
             // Data as of block c9c065028b20a23fbb9627bbca5946c7497f11e1f72433d4d215c79047cf06f2 (height 479189).
-            1580808868, // * UNIX timestamp of last known number of transactions
-            1743720,    // * total number of transactions between genesis and that timestamp
+            1554579000, // * UNIX timestamp of last known number of transactions
+            1,    // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0.007407208 // * estimated number of transactions per second after that timestamp
+            0.01666 // * estimated number of transactions per second after that timestamp
                         // 1743720/(1580808868-1345400356) = 0.007407208
         };
     }
