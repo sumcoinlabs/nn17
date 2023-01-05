@@ -50,7 +50,7 @@ const uint32_t BIP32_HARDENED_KEY_LIMIT = 0x80000000;
 
 const uint256 CMerkleTx::ABANDON_HASH(uint256S("0000000000000000000000000000000000000000000000000000000000000001"));
 
-// sumcoin: optional setting to unlock wallet for block minting only;
+// peercoin: optional setting to unlock wallet for block minting only;
 //         serves to disable the trivial sendmoney when OS account compromised
 bool fWalletUnlockMintOnly = false;
 
@@ -1496,7 +1496,7 @@ int64_t CWalletTx::GetTxTime() const
 //    int64_t n = nTimeSmart;
 //    return n ? n : nTimeReceived;
 
-    // sumcoin: we still have the timestamp, so use it to avoid confusion
+    // peercoin: we still have the timestamp, so use it to avoid confusion
     return tx->nTime;
 }
 
@@ -2055,7 +2055,7 @@ CAmount CWallet::GetBalance() const
     return nTotal;
 }
 
-// sumcoin: total coins staked (non-spendable until maturity)
+// peercoin: total coins staked (non-spendable until maturity)
 CAmount CWallet::GetStake() const
 {
     CAmount nTotal = 0;
@@ -2219,7 +2219,7 @@ void CWallet::AvailableCoins(std::vector<COutput> &vCoins, bool fOnlySafe, const
                 continue;
 
             if (nSpendTime > 0 && pcoin->tx->nTime > nSpendTime)
-                continue;  // sumcoin: timestamp must not exceed spend time
+                continue;  // peercoin: timestamp must not exceed spend time
 
             if ((pcoin->IsCoinBase() || pcoin->IsCoinStake()) && pcoin->GetBlocksToMaturity() > 0)
                 continue;
@@ -2732,7 +2732,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
     wtxNew.fTimeReceivedIsTxTime = true;
     wtxNew.BindWallet(this);
     CMutableTransaction txNew;
-    txNew.nTime = wtxNew.tx->nTime;  // sumcoin: set time
+    txNew.nTime = wtxNew.tx->nTime;  // peercoin: set time
 
     CAmount nFeeNeeded;
     unsigned int nBytes;
@@ -2838,7 +2838,7 @@ bool CWallet::CreateTransaction(const std::vector<CRecipient>& vecSend, CWalletT
 //                    nFeeRet += nMoveToFee;
 //                }
 
-                // sumcoin: sub-cent change is moved to fee
+                // peercoin: sub-cent change is moved to fee
                 if (nChange > 0 && nChange < MIN_TXOUT_AMOUNT)
                 {
                     nFeeRet += nChange;
@@ -4241,7 +4241,7 @@ CTxDestination CWallet::AddAndGetDestinationForScript(const CScript& script, Out
 }
 
 
-// sumcoin: create coin stake transaction
+// peercoin: create coin stake transaction
 typedef std::vector<unsigned char> valtype;
 bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew)
 {
@@ -4422,14 +4422,10 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         CAmount nReward = GetProofOfStakeReward(nCoinAge);
         // Refuse to create mint that has zero or negative reward
         if(nReward <= 0) {
-            LogPrintf("nCredit=%d, nReward=%d\n", nCredit, nReward);
-            
           return false;
         }
         nCredit += nReward;
     }
-    LogPrintf("calculated nCredit=%d\n", nCredit);
-    
 
     CAmount nMinFee = 0;
     CAmount nMinFeeBase = (IsProtocolV07(txNew.nTime) ? MIN_TX_FEE : MIN_TX_FEE_PREV7);
@@ -4443,9 +4439,6 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         }
         else
             txNew.vout[1].nValue = nCredit - nMinFee;
-        
-        LogPrintf("txNew.vout[1].nValue=%d, txNew.vout[2].nValue=%d\n", txNew.vout[1].nValue, txNew.vout[2].nValue);
-        
 
         // Sign
         int nIn = 0;
