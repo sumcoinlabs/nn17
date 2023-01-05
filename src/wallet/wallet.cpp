@@ -4424,7 +4424,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if(nReward <= 0) {
             LogPrintf("nCredit=%d, nReward=%d\n", nCredit, nReward);
             
-        //  return false;
+          return false;
         }
         nCredit += nReward;
     }
