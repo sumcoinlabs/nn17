@@ -4538,3 +4538,4 @@ bool CheckBlockSignature(const CBlock& block)
     }
     return false;
 }
+}
