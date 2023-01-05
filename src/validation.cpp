@@ -2954,10 +2954,12 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfS
 
     // Check proof of work or proof-of-stake
     const Consensus::Params& consensusParams = params.GetConsensus();
-   // if (block.nBits != GetNextTargetRequired(pindexPrev, fProofOfStake, consensusParams))
+    //if (block.nBits != GetNextTargetRequired(pindexPrev, fProofOfStake, consensusParams))
+    
     if (block.nBits != GetNextTargetRequired(pindexPrev, block.nFlags & CBlockIndex::BLOCK_PROOF_OF_STAKE, consensusParams)) {
-        LogPrintf("nBits: %d != %d", block.nBits, GetNextTargetRequired(pindexPrev, block.nFlags & CBlockIndex::BLOCK_PROOF_OF_STAKE, consensusParams));	
-   //     return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work/proof-of-stake");
+        LogPrintf("nBits: %d != %d", block.nBits, GetNextTargetRequired(pindexPrev, block.nFlags & CBlockIndex::BLOCK_PROOF_OF_STAKE, consensusParams)); 
+        // return state.Invalid(BlockValidationResult::BLOCK_INVALID_HEADER, "bad-diffbits", "incorrect proof of work/stake");
+    }
 
     // Check against checkpoints
     if (fCheckpointsEnabled) {
@@ -4538,4 +4540,4 @@ bool CheckBlockSignature(const CBlock& block)
     }
     return false;
 }
-}
+
