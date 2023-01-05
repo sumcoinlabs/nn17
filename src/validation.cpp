@@ -2837,11 +2837,11 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     CAmount nCoinbaseCost = 0;
     if (block.IsProofOfWork())
         nCoinbaseCost = (GetMinFee(*block.vtx[0]) < PERKB_TX_FEE)? 0 : (GetMinFee(*block.vtx[0]) - PERKB_TX_FEE);
-    if (block.vtx[0]->GetValueOut() > (block.IsProofOfWork()? (GetProofOfWorkReward(block.nBits) - nCoinbaseCost) : 0))
-        return state.DoS(50, false, REJECT_INVALID, "bad-cb-amount", false,
+    if (block.vtx[0]->GetValueOut() > (block.IsProofOfWork()? (MAX_MINT_PROOF_OF_WORK) : 0))
+        return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-amount",
                 strprintf("CheckBlock() : coinbase reward exceeded %s > %s",
                    FormatMoney(block.vtx[0]->GetValueOut()),
-                   FormatMoney(block.IsProofOfWork()? GetProofOfWorkReward(block.nBits) : 0)));
+                   FormatMoney(block.IsProofOfWork()? GetProofOfWorkReward(block.nBits, block.GetBlockTime()) : 0)));
 
     // Check transactions
     for (const auto& tx : block.vtx)
