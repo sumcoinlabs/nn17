@@ -107,8 +107,8 @@ public:
         strNetworkID = CBaseChainParams::MAIN;
         consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("00");
-        consensus.powLimit =            uint256S("000000003fffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // trying for cpu
-        consensus.bnInitialHashTarget = uint256S("000000004fffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // trying something new for cpu mining - x1.25% of powLimit
+        consensus.powLimit =            uint256S("0fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // trying for cpu
+        consensus.bnInitialHashTarget = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // trying something new for cpu mining - x1.25% of powLimit
         consensus.nTargetTimespan = 7 * 24 * 60 * 60;  // one week
         consensus.nStakeTargetSpacing = 1 * 60; // 1-minute block spacing
         consensus.nTargetSpacingWorkMax = 12 * consensus.nStakeTargetSpacing; // 2-hour
