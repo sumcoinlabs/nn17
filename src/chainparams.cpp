@@ -40,8 +40,6 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashPrevBlock.SetNull();
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis); //
 
-    // CBigNum bnTarget;
-    // bnTarget.SetCompact(genesis.nBits);
 
     // Generate a genesis block
     // Find one quicker if you start from a higher setting and launch a new process for each
@@ -54,20 +52,23 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     // ./sumcoind
     // .......
 
-    // while (genesis.GetHash() > bnTarget.getuint256())
-    // {
-    //     if (genesis.nNonce % 1048576 == 0)
-    //         printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
-    //                 genesis.GetHash().ToString().c_str());
-    //     genesis.nNonce++;
-    // }
-    // uint256 hash = genesis.GetHash();
-    // printf("%s\n", hash.ToString().c_str());
-    // printf("%s\n", genesis.ToString().c_str());
-    // printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
-    // genesis.print();
+     CBigNum bnTarget;
+     bnTarget.SetCompact(genesis.nBits);
 
-    // assert(false);
+     while (genesis.GetHash() > bnTarget.getuint256())
+     {
+         if (genesis.nNonce % 1048576 == 0)
+             printf("n=%dM hash=%s\n", genesis.nNonce / 1048576,
+                     genesis.GetHash().ToString().c_str());
+         genesis.nNonce++;
+     }
+     uint256 hash = genesis.GetHash();
+     printf("%s\n", hash.ToString().c_str());
+     printf("%s\n", genesis.ToString().c_str());
+     printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+     genesis.print();
+
+     assert(false);
 
     return genesis;
 }
@@ -105,11 +106,11 @@ public:
     CMainParams() {
         strNetworkID = CBaseChainParams::MAIN;
         consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5");
-        consensus.powLimit =            uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //24
-        consensus.bnInitialHashTarget = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); //32
+        consensus.BIP34Hash = uint256S("00");
+        consensus.powLimit =            uint256S("000000000000000000000000000000000000000000000000000000003b9aca00"); // trying for cpu
+        consensus.bnInitialHashTarget = uint256S("00000000000000000000000000000000000000000000000044bb44ee44bb44aa"); // trying something new for cpu mining - x1.25% of powLimit
         consensus.nTargetTimespan = 7 * 24 * 60 * 60;  // one week
-        consensus.nStakeTargetSpacing = 1 * 60; // 10-minute block spacing
+        consensus.nStakeTargetSpacing = 1 * 60; // 1-minute block spacing
         consensus.nTargetSpacingWorkMax = 12 * consensus.nStakeTargetSpacing; // 2-hour
         consensus.nPowTargetSpacing = consensus.nStakeTargetSpacing;
         consensus.nStakeMinAge = 60 * 60 * 24 * 1; // minimum age for coin age
@@ -143,10 +144,10 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 0;
 
-        genesis = CreateGenesisBlock(1554579000, 1554579300, 4097542u, 0x1e00ffff, 1, 0);
+        genesis = CreateGenesisBlock(1554579000, 1554579300, 0, 0x1e00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5"));
-        assert(genesis.hashMerkleRoot == uint256S("0xd87e2823fecc64d04b2475a48d8ae4dba9d0e46addaaaa9150b6a666e555f3b4"));
+        assert(consensus.hashGenesisBlock == uint256S("0"));
+        assert(genesis.hashMerkleRoot == uint256S("0"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -174,7 +175,7 @@ public:
 
         checkpointData = {
             {
-                {0,         uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5")},
+              //  {0,         uint256S("0x000000d384b2c2ee13d10c0dc983052635e304ea8631136c81de0b76181891f5")},
 
 
                 //{100,       uint256S("0x00000099242f8494ab53d675e5332a62bbd07c409ad0eb949142dd1c735552f3")},
