@@ -973,7 +973,8 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, (nCoinbaseMaturity+20) - GetDepthInMainChain());
+    return max(0, nCoinbaseMaturity - GetDepthInMainChain());      
+  //  return max(0, (nCoinbaseMaturity+20) - GetDepthInMainChain());  // old value adds 20 to coinbase. removed
 }
 
 
