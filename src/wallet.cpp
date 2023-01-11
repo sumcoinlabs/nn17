@@ -1546,7 +1546,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         int64 nReward = GetProofOfStakeReward(nCoinAge);
         // Refuse to create mint that has zero or negative reward
         if(nReward <= 0) {
-        LogPrintf("Reward for PoS is 0. Continuing\n");
+        //LogPrintf("Reward for PoS is 0. Continuing\n");
       //  LogPrintf("nCredit=%d, nReward=%d\n", nCredit, nReward);
           return false;
         }
