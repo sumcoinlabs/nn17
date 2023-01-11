@@ -3265,7 +3265,7 @@ bool InitBlockIndex() {
         // Genesis block
         const char* pszTimestamp = "We Forgot What Dr King Believed In NY Times";
         CTransaction txNew;
-        txNew.nTime = 1524241200;
+        txNew.nTime = 1522556400;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -3275,13 +3275,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1524241500;
+        block.nTime    = 1522556700;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 15669351;
 
         if (fTestNet)
         {
-            block.nTime    = 1345090000;
+            block.nTime    = 1522556700;
             block.nNonce   = 122894938;
         }
 
