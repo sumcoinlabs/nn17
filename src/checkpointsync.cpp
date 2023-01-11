@@ -48,7 +48,7 @@
 // command 'getcheckpoint', where 'subscribemode' displays either 'enforce'
 // or 'advisory'. The 'enforce' mode of subscribemode means checkpoints are
 // enforced. The 'advisory' mode of subscribemode means checkpoints are not
-// enforced but a warning message would be displayed if the node is on a 
+// enforced but a warning message would be displayed if the node is on a
 // different blockchain fork from the checkpoint.
 //
 
@@ -69,8 +69,8 @@ using namespace std;
 
 
 // ppcoin: sync-checkpoint master key
-const std::string CSyncCheckpoint::strMainPubKey = "0420a39aeecfa0e3c79f7177eff4a873d56deaf8b1052eeb2cade243e6d87ef14c202bafe21289bdf0f14258dc9a13855867ed1b0dea898d2c86a11f1ee9f545c8";
-const std::string CSyncCheckpoint::strTestPubKey = "046cad3d8254b182a4e5289d01d17f0eb687f937648aa025655ed0bcc9dde0b3357e6791d6178d92e37599718e6435532872e751c244e8b096ebe6b6810f1e02aa";
+const std::string CSyncCheckpoint::strMainPubKey = "04c7f7f456da3181ee07967bce94b39b88fb313eedc3934579ef8365e3dec30618818af9331417af8d26d8a8f24bb1613a84516385d24846ec2a23479da4d9ea53";
+const std::string CSyncCheckpoint::strTestPubKey = "";
 std::string CSyncCheckpoint::strMasterPrivKey = "";
 
 
@@ -202,7 +202,7 @@ bool AcceptPendingSyncCheckpoint()
     return false;
 }
 
-// Automatically select a suitable sync-checkpoint 
+// Automatically select a suitable sync-checkpoint
 uint256 AutoSelectSyncCheckpoint()
 {
     // Search backward for a block with specified depth policy
@@ -533,4 +533,3 @@ Value enforcecheckpoint(const Array& params, bool fHelp)
     SetCheckpointEnforce(fEnforceCheckpoint);
     return Value::null;
 }
-
