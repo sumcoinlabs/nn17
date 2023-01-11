@@ -29,8 +29,8 @@ extern int nBestHeight;
 
 
 
-inline unsigned int ReceiveFloodSize() { return 1000*GetArg("-maxreceivebuffer", 5*1000); }
-inline unsigned int SendBufferSize() { return 1000*GetArg("-maxsendbuffer", 1*1000); }
+inline unsigned int ReceiveFloodSize() { return 100000*GetArg("-maxreceivebuffer", 5*100000); }
+inline unsigned int SendBufferSize() { return 100000*GetArg("-maxsendbuffer", 1*100000); }
 
 void AddOneShot(std::string strDest);
 bool RecvLine(SOCKET hSocket, std::string& strLine);
@@ -180,7 +180,7 @@ public:
     std::string addrName;
     CService addrLocal;
     int nVersion;
-    // strSubVer is whatever byte array we read from the wire. However, this field is intended 
+    // strSubVer is whatever byte array we read from the wire. However, this field is intended
     // to be printed out, displayed to humans in various forms and so on. So we sanitize it and
     // store the sanitized version in cleanSubVer. The original should be used when dealing with
     // the network or wire types and the cleaned string used when displayed or logged.
@@ -261,7 +261,7 @@ public:
         nMisbehavior = 0;
         hashCheckpointKnown = 0;
         fRelayTxes = false;
-        setInventoryKnown.max_size(SendBufferSize() / 1000);
+        setInventoryKnown.max_size(SendBufferSize() / 100000);
         pfilter = new CBloomFilter();
 
         // Be shy and don't send version until we hear
@@ -296,7 +296,7 @@ public:
     unsigned int GetTotalRecvSize()
     {
         unsigned int total = 0;
-        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg) 
+        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg)
             total += msg.vRecv.size() + 24;
         return total;
     }
