@@ -3304,7 +3304,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0xab794c7cc7040bc31e56699967163182c7691c391a90cf2d6338f1cf4059b8c0"));
         block.print();
         assert(hash == hashGenesisBlock);
         // ppcoin: check genesis block
