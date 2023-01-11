@@ -3297,9 +3297,7 @@ bool InitBlockIndex() {
                        block.GetHash().ToString().c_str());
             block.nNonce++;
         }
-        uint256 hash = genesis.GetHash();
-        printf("%s\n", hash.ToString().c_str());
-        printf("%s\n", genesis.ToString().c_str());
+
 //#endif
 
         //// debug print
