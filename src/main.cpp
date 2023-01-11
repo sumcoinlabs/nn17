@@ -3277,13 +3277,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1345090300;
+        block.nTime    = 1522578000;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 200000000;
 
         if (fTestNet)
         {
-            block.nTime    = 1345090300;
+            block.nTime    = 1522578000;
             block.nNonce   = 100000000;
         }
 
