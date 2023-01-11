@@ -3279,7 +3279,7 @@ bool InitBlockIndex() {
         block.nVersion = 1;
         block.nTime    = 1522621200;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 200000000;
+        block.nNonce   = 211172335u;
 
         if (fTestNet)
         {
@@ -3287,7 +3287,7 @@ bool InitBlockIndex() {
             block.nNonce   = 100000000;
         }
 
-//#ifdef TESTING
+#ifdef TESTING
         CBigNum bnTarget;
         bnTarget.SetCompact(block.nBits);
         while (block.GetHash() > bnTarget.getuint256())
@@ -3298,7 +3298,7 @@ bool InitBlockIndex() {
             block.nNonce++;
         }
 
-//#endif
+#endif
 
         //// debug print
         uint256 hash = block.GetHash();
