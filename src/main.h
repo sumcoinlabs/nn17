@@ -58,15 +58,24 @@ static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
 static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
-/** No amount larger than this (in satoshi) is valid */
+/** No amount larger than this (in satoshi) is valid.
+ *
+ * Note that this constant is *not* the total money supply, which in Bitcoin
+ * currently happens to be less than 21,000,000 BTC for various reasons, but
+ * rather a sanity check. As this sanity check is used by consensus-critical
+ * validation code, the exact value of the MAX_MONEY constant is consensus
+ * critical; in unusual circumstances like a(nother) overflow bug that allowed
+ * for the creation of coins out of thin air modification could lead to a fork.
+ * */
 static const int64 MAX_MONEY = 200000000 * COIN;
+static const int64 PROOF_OF_WORK_BLOCKS = 20; // Block height of the last proof of work block
+
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const int64 MIN_TX_FEE_PREV7 = CENT;
 static const int64 MIN_TX_FEE = CENT / 10;
 static const int64 MIN_RELAY_TX_FEE = CENT / 10;
 static const int64 PERKB_TX_FEE = CENT;
 static const int64 MAX_MINT_PROOF_OF_WORK = 10000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
-static const int64 PROOF_OF_WORK_BLOCKS = 20; // Block height of the last proof of work block
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 500;
