@@ -1115,7 +1115,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 int64 GetProofOfWorkReward(unsigned int nBits)
-
+{
     return MAX_MINT_PROOF_OF_WORK;
 //    CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
 //    CBigNum bnTarget;
