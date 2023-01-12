@@ -1116,7 +1116,12 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 GetProofOfWorkReward(unsigned int nBits)
 {
-    return MAX_MINT_PROOF_OF_WORK;
+    int64 nSubsidy = 10000000 * COIN;
+
+    return nSubsidy;
+}
+
+
 //    CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
 //    CBigNum bnTarget;
 //    bnTarget.SetCompact(nBits);
@@ -1145,7 +1150,7 @@ int64 GetProofOfWorkReward(unsigned int nBits)
 //        printf("GetProofOfWorkReward() : create=%s nBits=0x%08x nSubsidy=%" PRI64d"\n", FormatMoney(nSubsidy).c_str(), nBits, nSubsidy);
 
 //    return min(nSubsidy, MAX_MINT_PROOF_OF_WORK);
-}
+//}
 
 // ppcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
 int64 GetProofOfStakeReward(int64 nCoinAge)
