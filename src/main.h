@@ -68,14 +68,14 @@ static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
  * for the creation of coins out of thin air modification could lead to a fork.
  * */
 static const int64 MAX_MONEY = 200000000 * COIN;
-static const int64 PROOF_OF_WORK_BLOCKS = 2; // Block height of the last proof of work block
+static const int64 PROOF_OF_WORK_BLOCKS = 1; // Block height of the last proof of work block
 
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const int64 MIN_TX_FEE_PREV7 = CENT;
 static const int64 MIN_TX_FEE = CENT / 10;
 static const int64 MIN_RELAY_TX_FEE = CENT / 10;
 static const int64 PERKB_TX_FEE = CENT;
-static const int64 MAX_MINT_PROOF_OF_WORK = 100000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
+static const int64 MAX_MINT_PROOF_OF_WORK = 200000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 500;
