@@ -3219,7 +3219,7 @@ bool LoadBlockIndex()
     if (fTestNet)
     {
 #ifdef TESTING
-        hashGenesisBlock = uint256("00");
+        hashGenesisBlock = uint256("000000081ff5ec210223022a751165f1b32d61c9e1cb83dfc927c2bc56ae8fb9");
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 15);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
         nCoinbaseMaturity = 60;
@@ -3290,7 +3290,7 @@ bool InitBlockIndex() {
             block.nNonce   = 100000000;
         }
 
-//#ifdef TESTING
+#ifdef TESTING
         CBigNum bnTarget;
         bnTarget.SetCompact(block.nBits);
         while (block.GetHash() > bnTarget.getuint256())
@@ -3301,7 +3301,7 @@ bool InitBlockIndex() {
             block.nNonce++;
         }
 
-//#endif
+#endif
 
         //// debug print
         uint256 hash = block.GetHash();
