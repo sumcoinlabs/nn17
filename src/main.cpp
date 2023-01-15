@@ -2383,7 +2383,24 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(GetBlockTime(), (int64)vtx[1].nTime))
         return state.DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRI64u" nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-    // Check coinbase reward
+    // Check coinbase reward and do not exceed nHeight with number * COIN as reward per block, log progress.
+    int64 nCoinbaseCost = 0;
+    if (IsProofOfWork()){
+        if (nHeight>2) {
+            logprintf("Hooray it's fully Mined!! %d blocks mined, 0 blocks remaining", nHeight);
+            return 0;
+        }
+        else {
+            logprintf("%d blocks mined, %d blocks remaining", nHeight, 2 - nHeight);
+            return 100000000 * COIN;
+        }
+    }
+    if (vtx[0].GetValueOut() > (IsProofOfWork()? (100000000 * COIN - nCoinbaseCost) : 0))
+    return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s",
+               FormatMoney(vtx[0].GetValueOut()).c_str(),
+               FormatMoney(IsProofOfWork()? GetProofOfWorkReward(nBits) : 0).c_str()));
+
+/*
     int64 nCoinbaseCost = 0;
     if (IsProofOfWork())
         nCoinbaseCost = (vtx[0].GetMinFee() < PERKB_TX_FEE)? 0 : (vtx[0].GetMinFee() - PERKB_TX_FEE);
@@ -2393,7 +2410,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
         return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s",
                    FormatMoney(vtx[0].GetValueOut()).c_str(),
                    FormatMoney(IsProofOfWork()? GetProofOfWorkReward(nBits) : 0).c_str()));
-
+*/
     // Check transactions
     BOOST_FOREACH(const CTransaction& tx, vtx)
     {
