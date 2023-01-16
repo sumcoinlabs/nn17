@@ -3218,7 +3218,7 @@ bool LoadBlockIndex()
 
     if (fTestNet)
     {
-#ifdef TESTING
+//#ifdef TESTING
         hashGenesisBlock = uint256("000000081ff5ec210223022a751165f1b32d61c9e1cb83dfc927c2bc56ae8fb9");
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 15);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
@@ -3232,7 +3232,7 @@ bool LoadBlockIndex()
         nCoinbaseMaturity = 60;
         bnInitialHashTarget = CBigNum(~uint256(0) >> 29);
         nModifierInterval = 60 * 20; // test net modifier interval is 20 minutes
-#endif
+//#endif
     }
 
     printf("%s Network: genesis=0x%s nBitsLimit=0x%08x nBitsInitial=0x%08x nStakeMinAge=%d nCoinbaseMaturity=%d nModifierInterval=%d\n",
