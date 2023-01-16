@@ -3219,18 +3219,18 @@ bool LoadBlockIndex()
     if (fTestNet)
     {
 //#ifdef TESTING
-        hashGenesisBlock = uint256("");
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 15);
+        hashGenesisBlock = uint256("00");
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 24);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
         nCoinbaseMaturity = 60;
-        bnInitialHashTarget = CBigNum(~uint256(0) >> 15);
+        bnInitialHashTarget = CBigNum(~uint256(0) >> 28);
         nModifierInterval = 60 * 20; // test net modifier interval is 20 minutes
 //#else
         hashGenesisBlock = hashGenesisBlockTestNet;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 28);
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 24);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
         nCoinbaseMaturity = 60;
-        bnInitialHashTarget = CBigNum(~uint256(0) >> 29);
+        bnInitialHashTarget = CBigNum(~uint256(0) >> 28);
         nModifierInterval = 60 * 20; // test net modifier interval is 20 minutes
 //#endif
     }
