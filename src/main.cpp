@@ -3290,7 +3290,7 @@ bool InitBlockIndex() {
             block.nNonce   = 166961405u;
         }
 
-#ifdef TESTING
+//#ifdef TESTING
         CBigNum bnTarget;
         bnTarget.SetCompact(block.nBits);
         while (block.GetHash() > bnTarget.getuint256())
@@ -3301,7 +3301,7 @@ bool InitBlockIndex() {
             block.nNonce++;
         }
 
-#endif
+//#endif
 
         //// debug print
         uint256 hash = block.GetHash();
