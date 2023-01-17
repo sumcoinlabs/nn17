@@ -33,7 +33,7 @@ class CCoinControl;
 struct CBlockIndexWorkComparator;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
-static const unsigned int MAX_BLOCK_SIZE = 10000000; //changed to 10 mb from 1 mb
+static const unsigned int MAX_BLOCK_SIZE = 1000000; // 1 mb
 /** Obsolete: maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 /** Default for -blockmaxsize, maximum size for mined blocks **/
