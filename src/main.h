@@ -75,14 +75,14 @@ static const int64 MIN_TX_FEE_PREV7 = CENT;
 static const int64 MIN_TX_FEE = CENT / 10;
 static const int64 MIN_RELAY_TX_FEE = CENT / 10;
 static const int64 PERKB_TX_FEE = CENT;
-static const int64 MAX_MINT_PROOF_OF_WORK = 100000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
+static const int64 MAX_MINT_PROOF_OF_WORK = 100000000 * COIN; // 100,000,000 for each PoW block - 2 total ## Must be  *'s by COIN';
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 500;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const int STAKE_TARGET_SPACING = 1 * 60; // 1-minute block spacing
-static const int STAKE_MIN_AGE = 60 * 60 * 24 * 1; // minimum age for coin age
-static const int STAKE_MAX_AGE = 60 * 60 * 24 * 90; // stake age of full weight
+static const int STAKE_MIN_AGE = 60 * 60 * 24 * 2000; // minimum age for coin age
+static const int STAKE_MAX_AGE = 60 * 60 * 24 * 2090; // stake age of full weight
 /** Maximum number of script-checking threads allowed */
 static const int MAX_SCRIPTCHECK_THREADS = 16;
 #ifdef USE_UPNP
