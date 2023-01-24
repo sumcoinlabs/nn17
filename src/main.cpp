@@ -2393,7 +2393,8 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
         nCoinbaseCost = (vtx[0].GetMinFee() < PERKB_TX_FEE)? 0 : (vtx[0].GetMinFee() - PERKB_TX_FEE);
 
     //if (vtx[0].GetValueOut() > (IsProofOfWork()? (GetProofOfWorkReward(nBits) - nCoinbaseCost) : 0)) // ppc version
-      if (vtx[0].GetValueOut() > (IsProofOfWork()? (100000000 * COIN - nCoinbaseCost) : 0)) // sum version
+// uncomment - changed from 100000000 to 0 after subsidy was mined
+      if (vtx[0].GetValueOut() > (IsProofOfWork()? (0 * COIN - nCoinbaseCost) : 0)) // sum version
         return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s",
                    FormatMoney(vtx[0].GetValueOut()).c_str(),
                    FormatMoney(IsProofOfWork()? GetProofOfWorkReward(nBits) : 0).c_str()));
