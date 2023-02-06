@@ -2445,7 +2445,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
     if (mapBlockIndex.count(hash))
         return state.Invalid(error("AcceptBlock() : block already in mapBlockIndex"));
 
-
+/*
 // modified version - stop rewards after 100 blocks
         // Get prev block index
         CBlockIndex* pindexPrev = NULL;
@@ -2473,11 +2473,11 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
                 pblock->vtx[0].vout[0].nValue = 0;
             }
         }
-
+*/
 
 
 // original version
-/*
+
     // Get prev block index
     CBlockIndex* pindexPrev = NULL;
     int nHeight = 0;
@@ -2487,7 +2487,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             return state.DoS(10, error("AcceptBlock() : prev block not found"));
         pindexPrev = (*mi).second;
         nHeight = pindexPrev->nHeight+1;
-*/
+
         // Check proof-of-work or proof-of-stake
         if (nBits != GetNextTargetRequired(pindexPrev, IsProofOfStake()))
             return state.DoS(100, error("AcceptBlock() : incorrect proof-of-work/proof-of-stake"));
