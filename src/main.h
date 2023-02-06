@@ -78,7 +78,7 @@ static const int64 PERKB_TX_FEE = CENT;
 static const int64 MAX_MINT_PROOF_OF_WORK = 100000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-static const int COINBASE_MATURITY_PPC = 500;
+static const int COINBASE_MATURITY_PPC = 100;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const int STAKE_TARGET_SPACING = 1 * 60; // 1-minute block spacing
 static const int STAKE_MIN_AGE = 60 * 60 * 24 * 1; // minimum age for coin age

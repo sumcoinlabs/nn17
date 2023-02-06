@@ -2389,7 +2389,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
         nCoinbaseCost = (vtx[0].GetMinFee() < PERKB_TX_FEE)? 0 : (vtx[0].GetMinFee() - PERKB_TX_FEE);
 
     //if (vtx[0].GetValueOut() > (IsProofOfWork()? (GetProofOfWorkReward(nBits) - nCoinbaseCost) : 0)) // ppc version
-      if (vtx[0].GetValueOut() > (IsProofOfWork()? (100000000 * COIN - nCoinbaseCost) : 0)) // sum version
+      if (vtx[0].GetValueOut() > (IsProofOfWork()? (MAX_MINT_PROOF_OF_WORK - nCoinbaseCost) : 0)) // sum version
         return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s",
                    FormatMoney(vtx[0].GetValueOut()).c_str(),
                    FormatMoney(IsProofOfWork()? GetProofOfWorkReward(nBits) : 0).c_str()));
@@ -2445,6 +2445,39 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
     if (mapBlockIndex.count(hash))
         return state.Invalid(error("AcceptBlock() : block already in mapBlockIndex"));
 
+
+// modified version - stop rewards after 100 blocks
+        // Get prev block index
+        CBlockIndex* pindexPrev = NULL;
+        int nHeight = 0;
+        if (hash != hashGenesisBlock) {
+            map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.find(hashPrevBlock);
+            if (mi == mapBlockIndex.end())
+                return state.DoS(10, error("AcceptBlock() : prev block not found"));
+            pindexPrev = (*mi).second;
+            nHeight = pindexPrev->nHeight+1;
+        }
+
+        // Stop mining POW blocks after 100 blocks
+        if (nHeight >= 100) {
+            if (block.IsProofOfWork()) {
+                return state.DoS(0, error("AcceptBlock() : Proof-of-Work block not accepted after 100 blocks"));
+            }
+        }
+
+        // Assign reward to miner
+        if (block.IsProofOfWork()) {
+            if (nHeight < 100) {
+                pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward();
+            } else {
+                pblock->vtx[0].vout[0].nValue = 0;
+            }
+        }
+
+
+
+// original version
+/*
     // Get prev block index
     CBlockIndex* pindexPrev = NULL;
     int nHeight = 0;
@@ -2454,7 +2487,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             return state.DoS(10, error("AcceptBlock() : prev block not found"));
         pindexPrev = (*mi).second;
         nHeight = pindexPrev->nHeight+1;
-
+*/
         // Check proof-of-work or proof-of-stake
         if (nBits != GetNextTargetRequired(pindexPrev, IsProofOfStake()))
             return state.DoS(100, error("AcceptBlock() : incorrect proof-of-work/proof-of-stake"));
