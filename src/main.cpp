@@ -3214,18 +3214,18 @@ bool LoadBlockIndex()
     if (fTestNet)
     {
 #ifdef TESTING
-        hashGenesisBlock = uint256("");
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 15);
+        hashGenesisBlock = uint256("0x0000001bd1c72d5de6244be7b0e27115f513ee37db56f44724761d99fd29dd5b");
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 24);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
         nCoinbaseMaturity = 60;
-        bnInitialHashTarget = CBigNum(~uint256(0) >> 15);
+        bnInitialHashTarget = CBigNum(~uint256(0) >> 28);
         nModifierInterval = 60 * 20; // test net modifier interval is 20 minutes
 #else
         hashGenesisBlock = hashGenesisBlockTestNet;
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 28);
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 24);
         nStakeMinAge = 60 * 60 * 24; // test net min age is 1 day
         nCoinbaseMaturity = 60;
-        bnInitialHashTarget = CBigNum(~uint256(0) >> 29);
+        bnInitialHashTarget = CBigNum(~uint256(0) >> 28);
         nModifierInterval = 60 * 20; // test net modifier interval is 20 minutes
 #endif
     }
@@ -3265,7 +3265,7 @@ bool InitBlockIndex() {
         // Genesis block
         const char* pszTimestamp = "We Forgot What Dr King Believed In NY Times";
         CTransaction txNew;
-        txNew.nTime = 1522556400;
+        txNew.nTime = 1522621200;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -3275,14 +3275,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1522556700;
+        block.nTime    = 1522621200;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 15669351;
+        block.nNonce   = 211172335u;
 
         if (fTestNet)
         {
-            block.nTime    = 1522556700;
-            block.nNonce   = 122894938;
+            block.nTime    = 1522621200;
+            block.nNonce   = 186231177u;
         }
 
 #ifdef TESTING
@@ -3302,7 +3302,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0x2e655a309a2a8c29a2a13e1ea9f0706a3ac7ef20116b588aa316b4cb270a25d6"));
         block.print();
         assert(hash == hashGenesisBlock);
         // ppcoin: check genesis block
