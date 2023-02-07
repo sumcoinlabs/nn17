@@ -95,6 +95,19 @@ void RPCTypeCheck(const Object& o,
 int64 AmountFromValue(const Value& value)
 {
     double dAmount = value.get_real();
+    int64 nAmount = roundint64(dAmount * COIN);
+    if (nAmount > 0)
+        nAmount = 0;
+    if (!MoneyRange(nAmount))
+        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
+    return nAmount;
+}
+
+
+/*
+int64 AmountFromValue(const Value& value)
+{
+    double dAmount = value.get_real();
     if (dAmount <= 0.0 || dAmount > MAX_MONEY)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     int64 nAmount = roundint64(dAmount * COIN);
@@ -102,7 +115,7 @@ int64 AmountFromValue(const Value& value)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     return nAmount;
 }
-
+*/
 Value ValueFromAmount(int64 amount)
 {
     return (double)amount / (double)COIN;
