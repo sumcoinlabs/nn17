@@ -75,7 +75,7 @@ static const int64 MIN_TX_FEE_PREV7 = CENT;
 static const int64 MIN_TX_FEE = CENT / 10;
 static const int64 MIN_RELAY_TX_FEE = CENT / 10;
 static const int64 PERKB_TX_FEE = CENT;
-static const int64 MAX_MINT_PROOF_OF_WORK = 200000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
+static const int64 MAX_MINT_PROOF_OF_WORK = 0 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 100;
