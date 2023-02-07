@@ -91,7 +91,7 @@ void RPCTypeCheck(const Object& o,
         }
     }
 }
-
+/* // comment out to prevent problems. modified
 int64 AmountFromValue(const Value& value)
 {
     double dAmount = value.get_real();
@@ -102,7 +102,7 @@ int64 AmountFromValue(const Value& value)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     return nAmount;
 }
-
+*/
 Value ValueFromAmount(int64 amount)
 {
     return (double)amount / (double)COIN;
