@@ -1147,6 +1147,14 @@ int64 GetProofOfWorkReward(unsigned int nBits)
 //    return min(nSubsidy, MAX_MINT_PROOF_OF_WORK);
 }
 
+//ppcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
+int64 GetProofOfStakeReward(int64 nCoinAge)
+{
+    return 0;
+}
+
+
+/*
 // ppcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
 int64 GetProofOfStakeReward(int64 nCoinAge)
 {
@@ -1156,7 +1164,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge)
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
     return nSubsidy;
 }
-
+*/
 // Remove a random orphan block (which does not have any dependent orphans).
 void static PruneOrphanBlocks()
 {
