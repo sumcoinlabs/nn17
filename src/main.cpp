@@ -5171,7 +5171,7 @@ pblocktemplate->vTxFees[0] = -nFees;
             return NULL;
         }
     }
-*/
+
     return pblocktemplate.release();
 }
 
