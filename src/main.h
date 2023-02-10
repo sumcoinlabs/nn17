@@ -68,17 +68,17 @@ static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
  * for the creation of coins out of thin air modification could lead to a fork.
  * */
 static const int64 MAX_MONEY = 200000000 * COIN;
-static const int64 PROOF_OF_WORK_BLOCKS = 2; // Block height of the last proof of work block
+static const int64 PROOF_OF_WORK_BLOCKS = 100; // Block height of the last proof of work block
 
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 static const int64 MIN_TX_FEE_PREV7 = CENT;
 static const int64 MIN_TX_FEE = CENT / 10;
 static const int64 MIN_RELAY_TX_FEE = CENT / 10;
 static const int64 PERKB_TX_FEE = CENT;
-static const int64 MAX_MINT_PROOF_OF_WORK = 200000000 * COIN; // 10,000,000 for each PoW block - 20 total ## Must be  *'s by COIN';
+static const int64 MAX_MINT_PROOF_OF_WORK = 2000000 * COIN; // 2,000,000 for each PoW block - 100 total ## Must be  *'s by COIN';
 static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-static const int COINBASE_MATURITY_PPC = 0;
+static const int COINBASE_MATURITY_PPC = 100;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const int STAKE_TARGET_SPACING = 1 * 60; // 1-minute block spacing
 static const int STAKE_MIN_AGE = 60 * 60 * 24 * 1; // minimum age for coin age
