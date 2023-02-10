@@ -44,7 +44,7 @@ static std::map<int, unsigned int> mapStakeModifierTestnetCheckpoints =
     boost::assign::map_list_of
 //    ( 0, 0x0e00670bu )
 //    ( 19080, 0x3711dc3au )
-//    (401119, 0xc6a3691eu )
+      (401119, 0xc6a3691eu )
     ;
 
 // Whether the given coinstake is subject to new v0.3 protocol
