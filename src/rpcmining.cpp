@@ -165,8 +165,8 @@ Value getwork(const Array& params, bool fHelp)
         // Increment the block counter
         blockCount++;
 
-        // If more than 1000 blocks have been mined, set the reward to 0
-        if (blockCount > 1000)
+        // If more than 10 blocks have been mined, set the reward to 0
+        if (blockCount > 10)
         {
 
             // Set the reward to 0
