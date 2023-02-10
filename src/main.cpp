@@ -5121,45 +5121,6 @@ CBlockTemplate* CreateNewBlock(CReserveKey& reservekey, CWallet* pwallet, bool f
             }
         }
 
-        nLastBlockTx = nBlockTx;
-        nLastBlockSize = nBlockSize;
-        if (fDebug && GetBoolArg("-printpriority"))
-            printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
-
-        if (pblock->IsProofOfWork()) {
-            if (indexDummy.nHeight > 10) {
-                pblock->vtx[0].vout[0].nValue = 0;
-            } else {
-                pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
-            }
-        }
-        pblocktemplate->vTxFees[0] = -nFees;
-
-        // Fill in header
-        pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
-        if (pblock->IsProofOfStake())
-            pblock->nTime      = pblock->vtx[1].nTime; //same as coinstake timestamp
-        pblock->nTime          = max(pindexPrev->GetMedianTimePast()+1, pblock->GetMaxTransactionTime());
-        pblock->nTime          = max(pblock->GetBlockTime(), pindexPrev->GetBlockTime() - nMaxClockDrift);
-        if (pblock->IsProofOfWork())
-            pblock->UpdateTime(pindexPrev);
-        pblock->nNonce         = 0;
-        pblock->vtx[0].vin[0].scriptSig = CScript() << OP_0 << OP_0;
-        pblocktemplate->vTxSigOps[0] = pblock->vtx[0].GetLegacySigOpCount();
-
-        CBlockIndex indexDummy(*pblock);
-        indexDummy.pprev = pindexPrev;
-        indexDummy.nHeight = pindexPrev->nHeight + 1;
-        CCoinsViewCache viewNew(*pcoinsTip, true);
-        CValidationState state;
-        if (!pblock->ConnectBlock(state, &indexDummy, viewNew, true))
-        {
-            error("CreateNewBlock() : ConnectBlock failed");
-            return NULL;
-        }
-    }
-
-
 
 /*
         nLastBlockTx = nBlockTx;
@@ -5170,6 +5131,22 @@ CBlockTemplate* CreateNewBlock(CReserveKey& reservekey, CWallet* pwallet, bool f
         if (pblock->IsProofOfWork())
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
         pblocktemplate->vTxFees[0] = -nFees;
+*/
+
+nLastBlockTx = nBlockTx;
+nLastBlockSize = nBlockSize;
+if (fDebug && GetBoolArg("-printpriority"))
+    printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
+
+if (pblock->IsProofOfWork()) {
+    if (pblock->nHeight > 10) {
+        pblock->vtx[0].vout[0].nValue = 0;
+    } else {
+        pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
+    }
+}
+pblocktemplate->vTxFees[0] = -nFees;
+
 
         // Fill in header
         pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
