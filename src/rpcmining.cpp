@@ -153,35 +153,34 @@ Value getwork(const Array& params, bool fHelp)
       if (pindexPrev != pindexBest ||
           (nTransactionsUpdated != nTransactionsUpdatedLast && GetTime() - nStart > 60))
       {
-          if (pindexPrev != pindexBest)
-          {
-              // Deallocate old blocks since they're obsolete now
-              mapNewBlock.clear();
-              BOOST_FOREACH(CBlockTemplate* pblocktemplate, vNewBlockTemplate)
-                  delete pblocktemplate;
-              vNewBlockTemplate.clear();
-          }
+        if (pindexPrev != pindexBest)
+        {
+            // Deallocate old blocks since they're obsolete now
+            mapNewBlock.clear();
+            BOOST_FOREACH(CBlockTemplate* pblocktemplate, vNewBlockTemplate)
+                delete pblocktemplate;
+            vNewBlockTemplate.clear();
+        }
 
-          // Increment the block counter
-          blockCount++;
+        // Increment the block counter
+        blockCount++;
 
-          // If more than 1 block has been mined, set the reward to 0
-          if (blockCount > 1)
-          {
-              // Clear pindexPrev so future getworks make a new block with 0 reward, despite any failures from here on
-              pindexPrev = NULL;
-              // Set the reward to 0
-              int64 GetProofOfStakeReward(int64 nCoinAge)
-              {
-                  return 0;
-              }
-          }
-          else
-          {
-              // Clear pindexPrev so future getworks make a new block, despite any failures from here on
-              pindexPrev = NULL;
-          }
-      }
+        // If more than 1000 blocks have been mined, set the reward to 0
+        if (blockCount > 1000)
+        {
+
+            // Set the reward to 0
+            return NULL;
+        }
+        else
+        {
+            // Create a new block template with the new reward value
+            pblocktemplate = CreateNewBlock(pwallet, chainparams);
+            if (!pblocktemplate)
+                throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
+            vNewBlockTemplate.push_back(pblocktemplate);
+        }
+    }
 
 
 /*
