@@ -5138,6 +5138,19 @@ nLastBlockSize = nBlockSize;
 if (fDebug && GetBoolArg("-printpriority"))
     printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
 
+if (pblock->IsProofOfWork() && pindexPrev->nHeight > 10)
+    return NULL;
+
+pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
+pblocktemplate->vTxFees[0] = -nFees;
+
+
+/*
+nLastBlockTx = nBlockTx;
+nLastBlockSize = nBlockSize;
+if (fDebug && GetBoolArg("-printpriority"))
+    printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
+
     if (pindexPrev->nHeight > 10) {
         pblock->vtx[0].vout[0].nValue = 0;
     } else {
@@ -5145,7 +5158,7 @@ if (fDebug && GetBoolArg("-printpriority"))
     }
 
 pblocktemplate->vTxFees[0] = -nFees;
-
+*/
 
         // Fill in header
         pblock->hashPrevBlock  = pindexPrev->GetBlockHash();
