@@ -5138,11 +5138,13 @@ nLastBlockSize = nBlockSize;
 if (fDebug && GetBoolArg("-printpriority"))
     printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
 
-if (pblock->IsProofOfWork() && pindexPrev->nHeight > 1)
-    return NULL;
+    if (pindexPrev->nHeight >= 1) {
+        pblock->vtx[0].vout[0].nValue = 0;
+    } else {
+        pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
+    }
+    pblocktemplate->vTxFees[0] = -nFees;
 
-pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
-pblocktemplate->vTxFees[0] = -nFees;
 
 
 /*
