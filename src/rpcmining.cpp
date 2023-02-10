@@ -145,11 +145,11 @@ Value getwork(const Array& params, bool fHelp)
     {
 
       // Update block
-      static unsigned int nTransactionsUpdatedLast;
-      static CBlockIndex* pindexPrev;
-      static int64 nStart;
+      static unsigned int nTransactionsUpdatedLast = 0;
+      static CBlockIndex* pindexPrev = NULL;
+      static int64_t nStart = GetTime();
       static int blockCount = 0;  // Add a counter for the number of blocks mined
-      static CBlockTemplate* pblocktemplate;
+      static CBlockTemplate* pblocktemplate = NULL;
       if (pindexPrev != pindexBest ||
           (nTransactionsUpdated != nTransactionsUpdatedLast && GetTime() - nStart > 60))
       {
@@ -169,14 +169,21 @@ Value getwork(const Array& params, bool fHelp)
           if (blockCount > 10)
           {
               // Set the reward to 0
-              return NULL;
+              return json_spirit::Value();
           }
           else
           {
-              // Clear pindexPrev so future getworks make a new block, despite any failures from here on
-              pindexPrev = NULL;
+              // Create a new block template with the new reward value
+              pblocktemplate = CreateNewBlock(pwallet, chainparams);
+              if (!pblocktemplate)
+                  throw JSONRPCError(RPC_OUT_OF_MEMORY, "Out of memory");
+              vNewBlockTemplate.push_back(pblocktemplate);
           }
+
+          // Clear pindexPrev so future getworks make a new block, despite any failures from here on
+          pindexPrev = NULL;
       }
+
 
 
 
