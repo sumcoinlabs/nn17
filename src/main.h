@@ -80,7 +80,7 @@ static const int64 MIN_TXOUT_AMOUNT = CENT;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY_PPC = 100;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
-static const int STAKE_TARGET_SPACING = 30; // 30 second block spacing
+static const int STAKE_TARGET_SPACING = 1 * 30; // 30 second block spacing
 static const int STAKE_MIN_AGE = 60 * 60 * 24 * 2000; // minimum age for coin age
 static const int STAKE_MAX_AGE = 60 * 60 * 24 * 2020; // stake age of full weight
 /** Maximum number of script-checking threads allowed */

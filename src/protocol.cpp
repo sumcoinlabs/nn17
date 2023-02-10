@@ -25,10 +25,10 @@ static unsigned int nMessageStartTestSwitchTime = 1522621200;
 
 // Peercoin message start (switch from Bitcoin's in v0.2)
 static unsigned char pchMessageStartBitcoin[4] = { 0xf9, 0xbe, 0xb4, 0xd9 };
-static unsigned char pchMessageStartPeercoin[4] = { 0xf1, 0xe6, 0xf9, 0xa2 };
+static unsigned char pchMessageStartPeercoin[4] = { 0xf2, 0xe5, 0xf8, 0xa3 };
 static unsigned int nMessageStartSwitchTime = 1522621200;
 
-unsigned char pchMessageStart[4] = { 0xf1, 0xe6, 0xf9, 0xa2 };
+unsigned char pchMessageStart[4] = { 0xf2, 0xe5, 0xf8, 0xa3 };
 
 void GetMessageStart(unsigned char pchMessageStart[], bool fPersistent)
 {
