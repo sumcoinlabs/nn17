@@ -5139,7 +5139,7 @@ if (fDebug && GetBoolArg("-printpriority"))
     printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
 
 if (pblock->IsProofOfWork()) {
-    if (pblock->nBlockSize > 10) {
+    if (pblock->IsProofOfWork && pindexPrev->nHeight > 10) {
         pblock->vtx[0].vout[0].nValue = 0;
     } else {
         pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
