@@ -5138,8 +5138,8 @@ nLastBlockTx = nBlockTx;
 nLastBlockSize = nBlockSize;
 if (fDebug && GetBoolArg("-printpriority"))
     printf("CreateNewBlock(): total size %" PRI64u"\n", nBlockSize);
-
-    if (pindexPrev->nHeight >= 100) {
+//modified max POW blocks equals 2000 then return 0 reward, only tx fees
+    if (pindexPrev->nHeight >= 4000) {
       pblock->vtx[0].vout[0].nValue = nFees;
     } else {
         pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits);
