@@ -15,7 +15,7 @@ unsigned int nProtocolV03SwitchTime     = 1685644000; //each set into the future
 unsigned int nProtocolV03TestSwitchTime = 1685644000;
 // Protocol switch time of v0.4 kernel protocol
 unsigned int nProtocolV04SwitchTime     = 1685644000;
-unsigned int nProtocolV04TestSwitchTime = 1680344400;
+unsigned int nProtocolV04TestSwitchTime = 1685644000;
 // Protocol switch time of v0.5 kernel protocol
 unsigned int nProtocolV05SwitchTime     = 1685644000;
 unsigned int nProtocolV05TestSwitchTime = 1685644000;
