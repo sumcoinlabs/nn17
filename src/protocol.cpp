@@ -19,16 +19,16 @@
 
 // Public testnet message start
 // unsigned char pchMessageStartTestBitcoin[4] = { 0xfa, 0xbf, 0xb5, 0xda };
-static unsigned char pchMessageStartTestOld[4] = { 0xdb, 0xe1, 0xf2, 0xf6 };
-static unsigned char pchMessageStartTestNew[4] = { 0xcb, 0xf3, 0xc1, 0xef };
+static unsigned char pchMessageStartTestOld[4] = { 0xf1, 0xe6, 0xf9, 0xa1 };
+static unsigned char pchMessageStartTestNew[4] = { 0xf1, 0xe6, 0xf9, 0xa1 };
 static unsigned int nMessageStartTestSwitchTime = 1522621200;
 
 // Peercoin message start (switch from Bitcoin's in v0.2)
-static unsigned char pchMessageStartBitcoin[4] = { 0xf9, 0xbe, 0xb4, 0xd9 };
-static unsigned char pchMessageStartPeercoin[4] = { 0xf2, 0xe5, 0xf8, 0xa3 };
+static unsigned char pchMessageStartBitcoin[4] = { 0xf1, 0xe6, 0xf9, 0xa2 };
+static unsigned char pchMessageStartPeercoin[4] = { 0xf1, 0xe6, 0xf9, 0xa2 };
 static unsigned int nMessageStartSwitchTime = 1522621200;
 
-unsigned char pchMessageStart[4] = { 0xf2, 0xe5, 0xf8, 0xa3 };
+unsigned char pchMessageStart[4] = { 0xf1, 0xe6, 0xf9, 0xa2 };
 
 void GetMessageStart(unsigned char pchMessageStart[], bool fPersistent)
 {
