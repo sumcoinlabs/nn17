@@ -3315,13 +3315,13 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location line="+1"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 9902)</source>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 3332)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Listen for connections on &lt;port&gt; (default: 9901 or testnet: 9903)</source>
-        <translation type="unfinished">Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333) {9901 ?} {9903)?}</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 3333 or testnet: 9903)</source>
+        <translation type="unfinished">Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333) {3333 ?} {9903)?}</translation>
     </message>
     <message>
         <location line="+1"/>
