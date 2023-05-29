@@ -14,17 +14,17 @@ using namespace std;
 unsigned int nProtocolV03SwitchTime     = 1685406000; //each set into the future
 unsigned int nProtocolV03TestSwitchTime = 1701307000;
 // Protocol switch time of v0.4 kernel protocol
-unsigned int nProtocolV04SwitchTime     = 1685459244 + 1000;
+unsigned int nProtocolV04SwitchTime     = 1685411111 + 1000;
 unsigned int nProtocolV04TestSwitchTime = 1701307000 + 1000;
 // Protocol switch time of v0.5 kernel protocol
-unsigned int nProtocolV05SwitchTime     = 1685459244 + 2000;
+unsigned int nProtocolV05SwitchTime     = 1685411111 + 2000;
 unsigned int nProtocolV05TestSwitchTime = 1701307000 + 2000;
 // Protocol switch time of v0.6 kernel protocol
 // supermajority hardfork: actual fork will happen later than switch time
-const unsigned int nProtocolV06SwitchTime     = 1685459244 + 3000; // Tue 12 Dec 03:40:00 UTC 2017
+const unsigned int nProtocolV06SwitchTime     = 1685411111 + 3000; // Tue 12 Dec 03:40:00 UTC 2017
 const unsigned int nProtocolV06TestSwitchTime = 1701307000 + 3000; // Tue 17 Oct 00:00:00 UTC 2017
 // Protocol switch time for 0.7 kernel protocol
-const unsigned int nProtocolV07SwitchTime     = 1685459244 + 3000; // Tue 12 Mar 12:00:00 UTC 2019
+const unsigned int nProtocolV07SwitchTime     = 1685411111 + 4000; // Tue 12 Mar 12:00:00 UTC 2019
 const unsigned int nProtocolV07TestSwitchTime = 1701307000 + 4000; // Tue 06 Nov 12:00:00 UTC 2018
 
 
